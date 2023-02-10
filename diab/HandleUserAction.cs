@@ -63,6 +63,7 @@ namespace diab
                         }
                         if (choose == 2)
                         {
+                            Console.Clear();
                             int selectedArmorType = ItemShopsCatalogue.ShowArmorsCatalogue();
                             string ArmorType = Armor.PlayerArmor(selectedArmorType);
                             Console.WriteLine("selected armorType {0}", ArmorType);

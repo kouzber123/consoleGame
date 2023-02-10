@@ -43,9 +43,9 @@ namespace diab
         /*
          TEMPLATE FOR SHOWING SHOP CONTENT
          */
-        public static void ShowShopItems(string name1, int lvl, int dmg)
+        public static void ShowShopItems(string name1, int lvl, int stats)
         {
-            Console.WriteLine($"Name: {name1}  lvl requirement: {lvl} dmg: {dmg} ");
+            Console.WriteLine($"Name: {name1}  lvl requirement: {lvl} stat bonus: {stats} ");
             
         }
         /*
@@ -57,6 +57,41 @@ namespace diab
             Console.WriteLine("YOU HAVE ACQUIRED A NEW Item {0}", itemName);
             Console.WriteLine("Your current Itemtype: {0}", gear);
             Console.ReadKey();
+        }
+        public static int ShowGearSlotOption()
+        {
+            while(true)
+            {
+                Console.WriteLine("What type of defense are you looking for?");
+                Console.WriteLine("(1) head protection?");
+                Console.WriteLine("(2) body protection?");
+                Console.WriteLine("(3) leg protection?");
+
+                string? choise = Console.ReadLine();
+
+                if(Int32.TryParse(choise, out int value) && value > 0 &&  value < 4)
+                {
+                    return value;
+                }
+                continue;
+           
+
+            }
+           
+        }
+        public static int GetUserInput()
+        {
+            while (true)
+            {
+                Console.WriteLine("Choose Armor 1-3");
+                string? userOption = Console.ReadLine();
+
+                if(Int32.TryParse(userOption, out int userOptionInt) && userOptionInt > 0 && userOptionInt < 4)
+                {
+                    return userOptionInt;
+                }
+                continue;
+            }
         }
     }
 }

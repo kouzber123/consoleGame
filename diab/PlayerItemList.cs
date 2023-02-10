@@ -8,172 +8,117 @@ namespace diab
 {
     internal class PlayerItemList
     {
-        public static void DisplayWeaponList(string weaponType, Weapon weapon, Hero player)
+       
+        public static void DisplayWeaponList(string WeaponType, Weapon weapon, Hero player)
         {
-            switch (weaponType)
+            int chosenItem;
+
+            string? weapon1, weapon2, weapon3;
+            int lvlreq1, lvlreq2, lvlreq3, damage1, damage2, damage3, weaponType;
+            switch (WeaponType)
             {
                 case "Sword":
-                    SelectionScreen.ShowShopItems("Wooden Sword", 1, 20);
-                    SelectionScreen.ShowShopItems("Steel Sword", 10, 50);
-                    SelectionScreen.ShowShopItems("Adamite Sword", 20, 500);
-                    Console.WriteLine("Choose weapon 1-3");
-                    int chosenItem = Int32.Parse(Console.ReadLine()!);
-                    if (chosenItem == 1)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "Wooden Sword", 1, 20);
-                    }
-                    if (chosenItem == 2)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "Steel Sword", 1, 20);
-                    }
-                    if (chosenItem == 3)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "Adamite sword", 1, 20);
-                    }
-                    weapon.EquipWeapon(6);
+                    weaponType = 6;
+                    weapon1 = "Iron Sword"; lvlreq1 = 1; damage1 = 20;
+                    weapon2 = "Steel Sword"; lvlreq2 = 10; damage2 = 50;
+                    weapon3 = "Magic Sword"; lvlreq3 = 20; damage3 = 500;
+                    SelectionScreen.ShowShopItems(weapon1, lvlreq1, damage1);
+                    SelectionScreen.ShowShopItems(weapon2, lvlreq2, damage2);
+                    SelectionScreen.ShowShopItems(weapon3, lvlreq3, damage3);
+                    chosenItem = SelectionScreen.GetUserInput();
+                    ItemShopsCatalogue.PlayerChoiseOfWeapon(ref chosenItem, ref weapon, ref weapon1, ref weapon2, ref weapon3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref damage1, ref damage2, ref damage3);
+
                     player.Weapon = weapon.Name;
                     player.Damage = weapon.WeaponDamage;
+                    weapon.EquipWeapon(weaponType);
                     break;
                 case "Axe":
-                    SelectionScreen.ShowShopItems("Wooden Axe", 1, 20);
-                    SelectionScreen.ShowShopItems("Steel Axe", 10, 50);
-                    SelectionScreen.ShowShopItems("Adamite Axe", 20, 500);
-                    Console.WriteLine("Choose weapon 1-3");
-                    chosenItem = Int32.Parse(Console.ReadLine()!);
-                    if (chosenItem == 1)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "Wooden Axe", 1, 20);
-                    }
-                    if (chosenItem == 2)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "Steel Axe", 10, 50);
-                    }
-                    if (chosenItem == 3)
-                    {
-
-                        PlayerSelectedGear.SetWeapon(weapon, "Adamite Axe", 20, 500);
-                    }
-                    weapon.EquipWeapon(1);
+                    weaponType = 1;
+                    weapon1 = "Iron axe"; lvlreq1 = 1; damage1 = 20;
+                    weapon2 = "Steel Axe"; lvlreq2 = 10; damage2 = 50;
+                    weapon3 = "Rune Axe"; lvlreq3 = 20; damage3 = 500;
+                    SelectionScreen.ShowShopItems(weapon1, lvlreq1, damage1);
+                    SelectionScreen.ShowShopItems(weapon2, lvlreq2, damage2);
+                    SelectionScreen.ShowShopItems(weapon3, lvlreq3, damage3); ;
+                    chosenItem = SelectionScreen.GetUserInput();
+                    ItemShopsCatalogue.PlayerChoiseOfWeapon(ref chosenItem, ref weapon, ref weapon1, ref weapon2, ref weapon3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref damage1, ref damage2, ref damage3);
+                    weapon.EquipWeapon(weaponType);
                     player.Weapon = weapon.Name;
                     player.Damage = weapon.WeaponDamage;
                     break;
                 case "Hammer":
-                    SelectionScreen.ShowShopItems("Wooden Hammer", 1, 20);
-                    SelectionScreen.ShowShopItems("Steel Hammer", 10, 50);
-                    SelectionScreen.ShowShopItems("Adamite Hammer", 20, 500);
-                    Console.WriteLine("Choose weapon 1-3");
-                    chosenItem = Int32.Parse(Console.ReadLine()!);
-                    if (chosenItem == 1)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "Wooden hammer", 1, 10);
-                    }
-                    if (chosenItem == 2)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "hammer", 10, 50);
-                    }
-                    if (chosenItem == 3)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "Giga hammer", 20, 500);
-                    }
-                    weapon.EquipWeapon(4);
+                    weaponType = 4;
+                    weapon1 = "wooden hammer"; lvlreq1 = 1; damage1 = 20;
+                    weapon2 = "Iron hammer"; lvlreq2 = 10; damage2 = 50;
+                    weapon3 = "Rune hammer"; lvlreq3 = 20; damage3 = 500;
+                    SelectionScreen.ShowShopItems(weapon1, lvlreq1, damage1);
+                    SelectionScreen.ShowShopItems(weapon2, lvlreq2, damage2);
+                    SelectionScreen.ShowShopItems(weapon3, lvlreq3, damage3);
+                    chosenItem = SelectionScreen.GetUserInput();
+                    ItemShopsCatalogue.PlayerChoiseOfWeapon(ref chosenItem, ref weapon, ref weapon1, ref weapon2, ref weapon3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref damage1, ref damage2, ref damage3);
+                    weapon.EquipWeapon(weaponType);
                     player.Weapon = weapon.Name;
                     player.Damage = weapon.WeaponDamage;
 
                     break;
                 case "Dagger":
-                    SelectionScreen.ShowShopItems("Shiv", 1, 20);
-                    SelectionScreen.ShowShopItems("Steel Dagger", 10, 50);
-                    SelectionScreen.ShowShopItems("Adamite dagger", 20, 500);
-                    Console.WriteLine("Choose weapon 1-3");
-                    chosenItem = Int32.Parse(Console.ReadLine()!);
-                    if (chosenItem == 1)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "Shiv", 1, 20);
-                    }
-                    if (chosenItem == 2)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "Steel Dagger", 10, 50);
-                    }
-                    if (chosenItem == 3)
-                    {
-
-                        PlayerSelectedGear.SetWeapon(weapon, "Adamite dagger", 20, 500);
-                    }
-                    weapon.EquipWeapon(3);
+                    weaponType = 3;
+                    weapon1 = "shiv"; lvlreq1 = 1; damage1 = 20;
+                    weapon2 = "iron dagger"; lvlreq2 = 10; damage2 = 50;
+                    weapon3 = "Steel dagger"; lvlreq3 = 20; damage3 = 500;
+                    SelectionScreen.ShowShopItems(weapon1, lvlreq1, damage1);
+                    SelectionScreen.ShowShopItems(weapon2, lvlreq2, damage2);
+                    SelectionScreen.ShowShopItems(weapon3, lvlreq3, damage3);
+                    chosenItem = SelectionScreen.GetUserInput(); ;
+                    ItemShopsCatalogue.PlayerChoiseOfWeapon(ref chosenItem, ref weapon, ref weapon1, ref weapon2, ref weapon3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref damage1, ref damage2, ref damage3);
+                    weapon.EquipWeapon(weaponType);
                     player.Weapon = weapon.Name;
                     player.Damage = weapon.WeaponDamage;
 
                     break;
                 case "Staff":
-                    SelectionScreen.ShowShopItems("Wooden Staff", 1, 20);
-                    SelectionScreen.ShowShopItems("Steel  staff", 10, 50);
-                    SelectionScreen.ShowShopItems("Halberdier", 20, 500);
-                    Console.WriteLine("Choose weapon 1-3");
-                    chosenItem = Int32.Parse(Console.ReadLine()!);
-                    if (chosenItem == 1)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "wooden staff", 1, 20);
-                    }
-                    if (chosenItem == 2)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "Steel staff", 10, 50);
-                    }
-                    if (chosenItem == 3)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "wooden staff", 20, 500);
-                    }
-                    weapon.EquipWeapon(5);
+                    weaponType = 5;
+                    weapon1 = "old stick"; lvlreq1 = 1; damage1 = 20;
+                    weapon2 = "wooden cane"; lvlreq2 = 10; damage2 = 50;
+                    weapon3 = "Arch wizard staff"; lvlreq3 = 20; damage3 = 500;
+                    SelectionScreen.ShowShopItems(weapon1, lvlreq1, damage1);
+                    SelectionScreen.ShowShopItems(weapon2, lvlreq2, damage2);
+                    SelectionScreen.ShowShopItems(weapon3, lvlreq3, damage3);
+                    chosenItem = SelectionScreen.GetUserInput();
+                    ItemShopsCatalogue.PlayerChoiseOfWeapon(ref chosenItem, ref weapon, ref weapon1, ref weapon2, ref weapon3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref damage1, ref damage2, ref damage3);
+                    weapon.EquipWeapon(weaponType);
                     player.Weapon = weapon.Name;
                     player.Damage = weapon.WeaponDamage;
 
                     break;
                 case "Bow":
-                    SelectionScreen.ShowShopItems("Wooden Bow", 1, 20);
-                    SelectionScreen.ShowShopItems("Long Bow", 10, 50);
-                    SelectionScreen.ShowShopItems("Composite Bow", 20, 500);
-                    Console.WriteLine("Choose weapon 1-3");
-                    chosenItem = Int32.Parse(Console.ReadLine()!);
+                    weaponType = 2;
+                    weapon1 = "wooden bow"; lvlreq1 = 1; damage1 = 20;
+                    weapon2 = "long bow"; lvlreq2 = 10; damage2 = 50;
+                    weapon3 = "Composite Bow"; lvlreq3 = 20; damage3 = 500;
+                    SelectionScreen.ShowShopItems(weapon1, lvlreq1, damage1);
+                    SelectionScreen.ShowShopItems(weapon2, lvlreq2, damage2);
+                    SelectionScreen.ShowShopItems(weapon3, lvlreq3, damage3);
+                    chosenItem = SelectionScreen.GetUserInput(); ;
 
-                    if (chosenItem == 1)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "wooden bow", 1, 20);
-                    }
-                    if (chosenItem == 2)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "Long bow", 10, 50);
-                    }
-                    if (chosenItem == 3)
-                    {
-
-                        PlayerSelectedGear.SetWeapon(weapon, "Composite bow", 20, 500);
-                    }
-                    weapon.EquipWeapon(2);
+                    ItemShopsCatalogue.PlayerChoiseOfWeapon(ref chosenItem, ref weapon, ref weapon1, ref weapon2, ref weapon3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref damage1, ref damage2, ref damage3);
+                    weapon.EquipWeapon(weaponType);
                     player.Weapon = weapon.Name;
                     player.Damage = weapon.WeaponDamage;
                     break;
                 case "Wand":
-                    SelectionScreen.ShowShopItems("Broken wand", 1, 20);
-                    SelectionScreen.ShowShopItems("Old mans wand", 10, 50);
-                    SelectionScreen.ShowShopItems("Liqurice", 20, 500);
-                    Console.WriteLine("Choose weapon 1-3");
-                    chosenItem = Int32.Parse(Console.ReadLine()!);
-                    if (chosenItem == 1)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "Broken wand", 1, 20);
-                    }
-                    if (chosenItem == 2)
-                    {
-                        PlayerSelectedGear.SetWeapon(weapon, "Old mans wand", 10, 50);
-                    }
-                    if (chosenItem == 3)
-                    {
-
-                        PlayerSelectedGear.SetWeapon(weapon, "Liqurice", 20, 500);
-                    }
-                    weapon.EquipWeapon(7);
+                    weaponType = 7;
+                    weapon1 = "Old mans wand"; lvlreq1 = 1; damage1 = 20;
+                    weapon2 = "Harry's wand"; lvlreq2 = 10; damage2 = 50;
+                    weapon3 = "Sussy wand"; lvlreq3 = 20; damage3 = 500;
+                    SelectionScreen.ShowShopItems(weapon1, lvlreq1, damage1);
+                    SelectionScreen.ShowShopItems(weapon2, lvlreq2, damage2);
+                    SelectionScreen.ShowShopItems(weapon3, lvlreq3, damage3);
+                    chosenItem = SelectionScreen.GetUserInput();
+                    ItemShopsCatalogue.PlayerChoiseOfWeapon(ref chosenItem, ref weapon, ref weapon1, ref weapon2, ref weapon3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref damage1, ref damage2, ref damage3);
+                    weapon.EquipWeapon(weaponType);
                     player.Weapon = weapon.Name;
                     player.Damage = weapon.WeaponDamage;
-
                     break;
 
                 default:
@@ -182,48 +127,31 @@ namespace diab
         } 
         public static string DisplayArmorList(string ArmorType, Armor armor, Hero player)
         {
-            string? gear1,gear2, gear3, choise;
-            int lvlreq1, lvlreq2, lvlreq3, defense1, defense2, defense3, chosenItem, armorType;
-
+            string? gear1,gear2, gear3;
+            int lvlreq1, lvlreq2, lvlreq3, defense1, defense2, defense3, chosenItem, armorType;     
             switch (ArmorType)
             {
                 case "cloth":
+                    Console.Clear();
                     armorType = 1;
-                    Console.WriteLine("What type of defense are you looking for?");
-                    Console.WriteLine("(1) head protection?");
-                    Console.WriteLine("(2) body protection?");
-                    Console.WriteLine("(3) leg protection?");
-                    choise =  Console.ReadLine();
+                   int choise = SelectionScreen.ShowGearSlotOption();
 
-                    if(choise == "1")
+                    if(choise == 1)
                     {
-                        gear1 = "wool shirt"; lvlreq1 = 1; defense1 = 20;
-                        gear2 = "Rune Cloth robe"; lvlreq2 = 10; defense2 = 50;
-                        gear3 = "Ultamage shirt"; lvlreq3 = 20; defense3 = 500;
+                        gear1 = "wool hat"; lvlreq1 = 1; defense1 = 20;
+                        gear2 = "Wizard hat"; lvlreq2 = 10; defense2 = 50;
+                        gear3 = "Arch wizard"; lvlreq3 = 20; defense3 = 500;
                         
                         SelectionScreen.ShowShopItems(gear1, lvlreq1, defense1);
                         SelectionScreen.ShowShopItems(gear2, lvlreq2, defense2);
                         SelectionScreen.ShowShopItems(gear3, lvlreq3, defense3);
-                        Console.WriteLine("Choose Armor 1-3");
-                        chosenItem = Int32.Parse(Console.ReadLine()!);
-                        if (chosenItem == 1)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear1, lvlreq1, defense1);
-                        }
-                        if (chosenItem == 2)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear2, lvlreq2, defense2);
-                        }
-                        if (chosenItem == 3)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear3, lvlreq3, defense3);
-                        }
-                    
+                        chosenItem = SelectionScreen.GetUserInput();
+                        ItemShopsCatalogue.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);                                   
                         player.Head = armor.Name;
                                          
                     }
 
-                    if(choise == "2")
+                    if(choise == 2)
                     {
                         gear1 = "wool shirt"; lvlreq1 = 1; defense1 = 20;
                         gear2 = "Rune Cloth robe"; lvlreq2 = 10; defense2 = 50;
@@ -231,94 +159,49 @@ namespace diab
                         SelectionScreen.ShowShopItems(gear1, lvlreq1, defense1);
                         SelectionScreen.ShowShopItems(gear2, lvlreq2, defense2);
                         SelectionScreen.ShowShopItems(gear3, lvlreq3, defense3);
-                        Console.WriteLine("Choose Armor 1-3");
-                        chosenItem = Int32.Parse(Console.ReadLine()!);
-                        if (chosenItem == 1)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear1, lvlreq1, defense1);
-                        }
-                        if (chosenItem == 2)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear2, lvlreq2, defense2);
-                        }
-                        if (chosenItem == 3)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear3, lvlreq3, defense3);
-                        }
-                      
-                        player.Body = armor.Name;
-                       
-                                       
+                        chosenItem = SelectionScreen.GetUserInput();
+                        ItemShopsCatalogue.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
+                        player.Body = armor.Name;                                                           
                     }
-                    if(choise == "3")
+                    if(choise == 3)
                     {
                        
-                            gear1 = "wool shirt"; lvlreq1 = 1; defense1 = 20;
-                            gear2 = "Rune Cloth robe"; lvlreq2 = 10; defense2 = 50;
-                            gear3 = "Ultamage shirt"; lvlreq3 = 20; defense3 = 500;
+                            gear1 = "Wool pants"; lvlreq1 = 1; defense1 = 20;
+                            gear2 = "Wizard robe"; lvlreq2 = 10; defense2 = 50;
+                            gear3 = "Ultimate soft pants"; lvlreq3 = 20; defense3 = 500;
                             SelectionScreen.ShowShopItems(gear1, lvlreq1, defense1);
                             SelectionScreen.ShowShopItems(gear2, lvlreq2, defense2);
                             SelectionScreen.ShowShopItems(gear3, lvlreq3, defense3);
-                            Console.WriteLine("Choose Armor 1-3");
-                            chosenItem = Int32.Parse(Console.ReadLine()!);
-                            if (chosenItem == 1)
-                            {
-                                PlayerSelectedGear.SetArmor(armor, gear1, lvlreq1, defense1);
-                            }
-                            if (chosenItem == 2)
-                            {
-                                PlayerSelectedGear.SetArmor(armor, gear2, lvlreq2, defense2);
-                            }
-                            if (chosenItem == 3)
-                            {
-                                PlayerSelectedGear.SetArmor(armor, gear3, lvlreq3, defense3);
-                            }
-                        
-                            player.Legs = armor.Name;
+                            chosenItem = SelectionScreen.GetUserInput(); ;
+                        ItemShopsCatalogue.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
+                        player.Legs = armor.Name;
                         
                     }
                     
                     armor.Equip(armorType);
                     player.Defense += armor.ArmorDefense;
-                    return armor.Name;
-                    break;
+                    return armor.Name!;
+                   
                    
                 case "leather":
+                    Console.Clear();
                     armorType = 2;
-                    Console.WriteLine("What type of defense are you looking for?");
-                    Console.WriteLine("(1) head protection?");
-                    Console.WriteLine("(2) body protection?");
-                    Console.WriteLine("(3) leg protection?");
-                    choise = Console.ReadLine();
-
-                    if (choise == "1")
+                    choise = SelectionScreen.ShowGearSlotOption();
+                    if (choise == 1)
                     {
-                        gear1 = "leather shirt"; lvlreq1 = 1; defense1 = 20;
-                        gear2 = "leather winter robe"; lvlreq2 = 10; defense2 = 50;
-                        gear3 = "Ulrics shirt"; lvlreq3 = 20; defense3 = 500;
+                        gear1 = "leather Helmet"; lvlreq1 = 1; defense1 = 20;
+                        gear2 = "Thick hide helmet"; lvlreq2 = 10; defense2 = 50;
+                        gear3 = "Venomsaur helmet"; lvlreq3 = 20; defense3 = 500;
                         SelectionScreen.ShowShopItems(gear1, lvlreq1, defense1);
                         SelectionScreen.ShowShopItems(gear2, lvlreq2, defense2);
                         SelectionScreen.ShowShopItems(gear3, lvlreq3, defense3);
-                        Console.WriteLine("Choose Armor 1-3");
-                        chosenItem = Int32.Parse(Console.ReadLine()!);
-                        if (chosenItem == 1)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear1, lvlreq1, defense1);
-                        }
-                        if (chosenItem == 2)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear2, lvlreq2, defense2);
-                        }
-                        if (chosenItem == 3)
-                        {
+                        chosenItem = SelectionScreen.GetUserInput();
+                        ItemShopsCatalogue.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
 
-                            PlayerSelectedGear.SetArmor(armor, gear3, lvlreq3, defense3);
-                        }
-                        
                         player.Head = armor.Name;
                    
                     }
-                    if (choise == "2")
+                    if (choise == 2)
                     {
                         gear1 = "leather shirt"; lvlreq1 = 1; defense1 = 20;
                         gear2 = "leather winter robe"; lvlreq2 = 10; defense2 = 50;
@@ -326,92 +209,46 @@ namespace diab
                         SelectionScreen.ShowShopItems(gear1, lvlreq1, defense1);
                         SelectionScreen.ShowShopItems(gear2, lvlreq2, defense2);
                         SelectionScreen.ShowShopItems(gear3, lvlreq3, defense3);
-                        Console.WriteLine("Choose Armor 1-3");
-
-                        chosenItem = Int32.Parse(Console.ReadLine()!);
-                        if (chosenItem == 1)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear1, lvlreq1, defense1);
-                        }
-                        if (chosenItem == 2)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear2, lvlreq2, defense2);
-                        }
-                        if (chosenItem == 3)
-                        {
-
-                            PlayerSelectedGear.SetArmor(armor, gear3, lvlreq3, defense3);
-                        }
+                        chosenItem = SelectionScreen.GetUserInput();
+                        ItemShopsCatalogue.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
                         player.Body = armor.Name;
                       
-                   
-
                     }
-                    if (choise == "3")
+                    if (choise == 3)
                     {
-                        gear1 = "leather shirt"; lvlreq1 = 1; defense1 = 20;
-                        gear2 = "leather winter robe"; lvlreq2 = 10; defense2 = 50;
-                        gear3 = "Ulrics shirt"; lvlreq3 = 20; defense3 = 500;
+                        gear1 = "leather pants"; lvlreq1 = 1; defense1 = 20;
+                        gear2 = "heavy hide pants"; lvlreq2 = 10; defense2 = 50;
+                        gear3 = "Anzients pants"; lvlreq3 = 20; defense3 = 500;
                         SelectionScreen.ShowShopItems(gear1, lvlreq1, defense1);
                         SelectionScreen.ShowShopItems(gear2, lvlreq2, defense2);
                         SelectionScreen.ShowShopItems(gear3, lvlreq3, defense3);
-                        Console.WriteLine("Choose Armor 1-3");
-
-                        chosenItem = Int32.Parse(Console.ReadLine()!);
-                        if (chosenItem == 1)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear1, lvlreq1, defense1);
-                        }
-                        if (chosenItem == 2)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear2, lvlreq2, defense2);
-                        }
-                        if (chosenItem == 3)
-                        {
-
-                            PlayerSelectedGear.SetArmor(armor, gear3, lvlreq3, defense3);
-                        }
+                        chosenItem = SelectionScreen.GetUserInput();
+                        ItemShopsCatalogue.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
                         player.Legs = armor.Name;
                     }
                     player.Defense += armor.ArmorDefense;
                     armor.Equip(armorType);
-                    return armor.Name;
-                    break;
+                    return armor.Name!;
+                    
                 case "mail":
+                    Console.Clear();
                     armorType = 3;
-                    Console.WriteLine("What type of defense are you looking for?");
-                    Console.WriteLine("(1) head protection?");
-                    Console.WriteLine("(2) body protection?");
-                    Console.WriteLine("(3) leg protection?");
-                    choise = Console.ReadLine();
+                    choise = SelectionScreen.ShowGearSlotOption();
 
-                    if (choise == "1")
+                    if (choise == 1)
                     {
-                        gear1 = "iron chainmail"; lvlreq1 = 1; defense1 = 20;
-                        gear2 = "steel chainmail"; lvlreq2 = 10; defense2 = 50;
-                        gear3 = "God of war shirt"; lvlreq3 = 20; defense3 = 5000;
+                        gear1 = "iron helmet"; lvlreq1 = 1; defense1 = 20;
+                        gear2 = "steel cuffed helmet"; lvlreq2 = 10; defense2 = 50;
+                        gear3 = "God of war helmet"; lvlreq3 = 20; defense3 = 5000;
                         SelectionScreen.ShowShopItems(gear1, lvlreq1, defense1);
                         SelectionScreen.ShowShopItems(gear2, lvlreq2, defense2);
                         SelectionScreen.ShowShopItems(gear3, lvlreq3, defense3);
-                        Console.WriteLine("Choose Armor 1-3");
-                        chosenItem = Int32.Parse(Console.ReadLine()!);
-                        if (chosenItem == 1)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear1, lvlreq1, defense1);
-                        }
-                        if (chosenItem == 2)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear2, lvlreq2, defense2);
-                        }
-                        if (chosenItem == 3)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear3, lvlreq3, defense3);
-                        }
-                        
+                        chosenItem = SelectionScreen.GetUserInput();
+                        ItemShopsCatalogue.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
                         player.Head = armor.Name;
                         
                     }
-                    if (choise == "2")
+                    if (choise == 2)
                     {
                         gear1 = "iron chainmail"; lvlreq1 = 1; defense1 = 20;
                         gear2 = "steel chainmail"; lvlreq2 = 10; defense2 = 50;
@@ -419,85 +256,47 @@ namespace diab
                         SelectionScreen.ShowShopItems(gear1, lvlreq1, defense1);
                         SelectionScreen.ShowShopItems(gear2, lvlreq2, defense2);
                         SelectionScreen.ShowShopItems(gear3, lvlreq3, defense3);
-                        Console.WriteLine("Choose Armor 1-3");
-                        chosenItem = Int32.Parse(Console.ReadLine()!);
-                        if (chosenItem == 1)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear1, lvlreq1, defense1);
-                        }
-                        if (chosenItem == 2)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear2, lvlreq2, defense2);
-                        }
-                        if (chosenItem == 3)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear3, lvlreq3, defense3);
-                        }
+                        chosenItem = SelectionScreen.GetUserInput();
+                        ItemShopsCatalogue.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
                         player.Body = armor.Name;
                 
                     }
-                    if (choise == "3")
+                    if (choise == 3)
                     {
-                        gear1 = "iron chainmail"; lvlreq1 = 1; defense1 = 20;
-                        gear2 = "steel chainmail"; lvlreq2 = 10; defense2 = 50;
-                        gear3 = "God of war shirt"; lvlreq3 = 20; defense3 = 5000;
+                        gear1 = "iron pants"; lvlreq1 = 1; defense1 = 20;
+                        gear2 = "steel pants"; lvlreq2 = 10; defense2 = 50;
+                        gear3 = "God of war pants"; lvlreq3 = 20; defense3 = 5000;
                         SelectionScreen.ShowShopItems(gear1, lvlreq1, defense1);
                         SelectionScreen.ShowShopItems(gear2, lvlreq2, defense2);
                         SelectionScreen.ShowShopItems(gear3, lvlreq3, defense3);
-                        Console.WriteLine("Choose Armor 1-3");
-                        chosenItem = Int32.Parse(Console.ReadLine()!);
-                        if (chosenItem == 1)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear1, lvlreq1, defense1);
-                        }
-                        if (chosenItem == 2)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear2, lvlreq2, defense2);
-                        }
-                        if (chosenItem == 3)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear3, lvlreq3, defense3);
-                        }
+                        chosenItem = SelectionScreen.GetUserInput();
+                        ItemShopsCatalogue.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
                         player.Legs = armor.Name;
                     };
                  
                     player.Defense += armor.ArmorDefense;
                     armor.Equip(armorType);
-                    return armor.Name;
-                    break;
+                    return armor.Name!;
+                   
                 case "plate":
+                    Console.Clear();
                     armorType = 4;
-                    Console.WriteLine("What type of defense are you looking for?");
-                    Console.WriteLine("(1) head protection?");
-                    Console.WriteLine("(2) body protection?");
-                    Console.WriteLine("(3) leg protection?");
-                    choise = Console.ReadLine();
 
-                    if (choise == "1")
+                    choise  = SelectionScreen.ShowGearSlotOption();
+
+                    if (choise == 1)
                     {
-                        gear1 = "iron chainmail"; lvlreq1 = 1; defense1 = 20;
-                        gear2 = "steel chainmail"; lvlreq2 = 10; defense2 = 50;
-                        gear3 = "God of war shirt"; lvlreq3 = 20; defense3 = 5000;
+                        gear1 = "Plated helmet"; lvlreq1 = 1; defense1 = 20;
+                        gear2 = "heacy plate helmet"; lvlreq2 = 10; defense2 = 50;
+                        gear3 = "Ancient plate helmet"; lvlreq3 = 20; defense3 = 5000;
                         SelectionScreen.ShowShopItems(gear1, lvlreq1, defense1);
                         SelectionScreen.ShowShopItems(gear2, lvlreq2, defense2);
                         SelectionScreen.ShowShopItems(gear3, lvlreq3, defense3);
-                        Console.WriteLine("Choose Armor 1-3");
-                        chosenItem = Int32.Parse(Console.ReadLine()!);
-                        if (chosenItem == 1)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear1, lvlreq1, defense1);
-                        }
-                        if (chosenItem == 2)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear2, lvlreq2, defense2);
-                        }
-                        if (chosenItem == 3)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear3, lvlreq3, defense3);
-                        }
+                        chosenItem = SelectionScreen.GetUserInput();
+                        ItemShopsCatalogue.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
                         player.Head = armor.Name;
                     }
-                    if (choise == "2")
+                    if (choise == 2)
                     {
                         gear1 = "plate armor"; lvlreq1 = 1; defense1 = 20;
                         gear2 = "knight armor"; lvlreq2 = 10; defense2 = 50;
@@ -505,57 +304,30 @@ namespace diab
                         SelectionScreen.ShowShopItems(gear1, lvlreq1, defense1);
                         SelectionScreen.ShowShopItems(gear2, lvlreq2, defense2);
                         SelectionScreen.ShowShopItems(gear3, lvlreq3, defense3);
-                        Console.WriteLine("Choose Armor 1-3");
-                        chosenItem = Int32.Parse(Console.ReadLine()!);
-                        if (chosenItem == 1)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear1, lvlreq1, defense1);
-                        }
-                        if (chosenItem == 2)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear2, lvlreq2, defense2);
-                        }
-                        if (chosenItem == 3)
-                        {
-
-                            PlayerSelectedGear.SetArmor(armor, gear3, lvlreq3, defense3);
-                        }
+                        chosenItem = SelectionScreen.GetUserInput();
+                        ItemShopsCatalogue.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
                         player.Body = armor.Name;
                 
                     }
-                    if (choise == "3")
+                    if (choise == 3)
                     {
-                        gear1 = "iron chainmail"; lvlreq1 = 1; defense1 = 20;
-                        gear2 = "steel chainmail"; lvlreq2 = 10; defense2 = 50;
-                        gear3 = "God of war shirt"; lvlreq3 = 20; defense3 = 5000;
+                        gear1 = "Plate leggings"; lvlreq1 = 1; defense1 = 20;
+                        gear2 = "Agumus plated leggings"; lvlreq2 = 10; defense2 = 50;
+                        gear3 = "Lost gods legs"; lvlreq3 = 20; defense3 = 5000;
                         SelectionScreen.ShowShopItems(gear1, lvlreq1, defense1);
                         SelectionScreen.ShowShopItems(gear2, lvlreq2, defense2);
                         SelectionScreen.ShowShopItems(gear3, lvlreq3, defense3);
-                        Console.WriteLine("Choose Armor 1-3");
-                        chosenItem = Int32.Parse(Console.ReadLine()!);
-                        if (chosenItem == 1)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear1, lvlreq1, defense1);
-                        }
-                        if (chosenItem == 2)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear2, lvlreq2, defense2);
-                        }
-                        if (chosenItem == 3)
-                        {
-                            PlayerSelectedGear.SetArmor(armor, gear3, lvlreq3, defense3);
-                        }
+                        chosenItem = SelectionScreen.GetUserInput();
+                        ItemShopsCatalogue.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
                         player.Body = armor.Name;
                     }
                     armor.Equip(armorType);         
                     player.Defense = armor.ArmorDefense;
-                    return armor.Name;
-
-                    break;
+                    return armor.Name!;
               
                 default:
                     return "";
-                    break;
+                   
             }
         }
     }
