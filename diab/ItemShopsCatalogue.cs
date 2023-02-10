@@ -45,7 +45,7 @@ namespace diab
                     armorsInInventory++;
 
                 }
-                Console.WriteLine("Choose a weapon.");
+                Console.WriteLine("Choose an armor.");
                 string? selectedArmor = Console.ReadLine();
 
                 if (Int32.TryParse(selectedArmor, out int selectedArmorInt) && selectedArmor != null && selectedArmorInt > 0 && selectedArmorInt < armorsInInventory)

@@ -20,7 +20,7 @@ namespace diab
             plate = 4,
         }
 
-        public string Equiq(int armor)
+        public string Equip(int armor)
         {
             var result = PlayerArmor(armor);
             if (result != null)

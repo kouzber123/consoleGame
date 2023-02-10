@@ -65,13 +65,11 @@ namespace diab
                         {
                             int selectedArmorType = ItemShopsCatalogue.ShowArmorsCatalogue();
                             string ArmorType = Armor.PlayerArmor(selectedArmorType);
-
+                            Console.WriteLine("selected armorType {0}", ArmorType);
                             //create body part selection
-                            int ArmorSlot = 
-                            player.Body = ArmorType;
                             Armor armor = new();
-                            PlayerItemList.DisplayArmorList(ArmorType, armor, player); //create head, body, legs
-                            SelectionScreen.ShowAcquiredItem(player.w)
+                            string name = PlayerItemList.DisplayArmorList(ArmorType, armor, player); //create head, body, legs
+                            SelectionScreen.ShowAcquiredItem(name, armor.ArmorType!);
                             Console.ReadKey();
                             //Console.Clear();
                             //next create select for helmet, body, legs

@@ -52,10 +52,10 @@ namespace diab
          * DISPLAY ITEMS PLAYER CAN CHOOSE FROM
          * **/
         
-        public static void ShowAcquiredItem( string player,  string weapon)
+        public static void ShowAcquiredItem( string itemName,  string gear)
         {
-            Console.WriteLine("YOU HAVE ACQUIRED A NEW A WEAPON {0}", player);
-            Console.WriteLine("Your current weapontype: {0}", weapon);
+            Console.WriteLine("YOU HAVE ACQUIRED A NEW Item {0}", itemName);
+            Console.WriteLine("Your current Itemtype: {0}", gear);
             Console.ReadKey();
         }
     }
