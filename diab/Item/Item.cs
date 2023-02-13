@@ -5,8 +5,6 @@
         public string? Name { get; set; } //helmet of speed
         public int RequiredLevel { get; set; } //8
         public string? Slot { get; set; } //head
-
-
         public enum Slots
         {
             Weapon = 1,
@@ -22,39 +20,46 @@
         /// <param name="player"></param>
         /// <returns></returns>
         public string EquipGear(int gear, Player player)
-            //here use conditionals
+        //here use conditionals
         {
-            var result = PlayerGear(gear);
-            if (result != null && player.Level >= RequiredLevel)
+            string result = PlayerGear(gear);
+            try
             {
-                if (result == "Weapon")
+                if (result != null && player.Level >= RequiredLevel)
                 {
-                    player.Weapon = Name;
-                }
-                if (result == "Head")
-                {
-                    player.Head = Name;
-             
-                }
-                if (result == "Body")
-                {
-                    player.Body = Name;
-                }
-                if (result == "Legs")
-                {
-                    player.Legs = Name;             
-                }
-            
-            }
-            else
-            {
-                Console.WriteLine("You do not meet the requirements to equip that");
-            }
-            
-            Slot = result;
-            return Name!;  
-    }
+                    if (result == "Weapon")
+                    {
+                        player.Weapon = Name;
+                    }
+                    if (result == "Head")
+                    {
+                        player.Head = Name;
 
+                    }
+                    if (result == "Body")
+                    {
+                        player.Body = Name;
+                    }
+                    if (result == "Legs")
+                    {
+                        player.Legs = Name;
+                    }
+                    Slot = result;
+                    return Name!;
+                }
+
+            }
+            catch (ArgumentException)
+            {
+
+                Console.WriteLine("Player given type is unexpected ");
+            }
+            return null!;
+          
+
+        }
+    
+           
         /// <summary>
         /// This gets the correct enum for gear
         /// </summary>

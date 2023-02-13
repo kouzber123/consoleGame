@@ -1,4 +1,6 @@
-﻿using System.Numerics;
+﻿using System.Collections.Generic;
+using System.Numerics;
+using System.Reflection;
 
 namespace diab
 {
@@ -45,11 +47,10 @@ namespace diab
                 if (armor == 2 && heroClass == "Ranger")
                 {
                     return armorType = PlayerArmor(armor);
+                   
                 }
-
                 else
                 {
-
                     return "";
                 }
             }
@@ -62,8 +63,8 @@ namespace diab
         /// <returns></returns>
             public static string PlayerArmor(int selectedArmorType)
         {
-            string heroWeaponChoise = ((Armors)selectedArmorType).ToString();
-            return heroWeaponChoise;
+            return ((Armors)selectedArmorType).ToString();
+            
         }
 
     }

@@ -18,7 +18,7 @@ namespace diab
         /// <param name="weapon"></param>
         /// <param name="player"></param>
 
-         public static void DisplayWeaponList(string WeaponType, Weapon weapon, Player player)
+         public static string DisplayWeaponList(string WeaponType, Weapon weapon, Player player)
         {
             int chosenItem = 0;
             string? weapon1 ="", weapon2 = "", weapon3 = "";
@@ -96,10 +96,12 @@ namespace diab
             }
             SetWeapon.PlayerChoiseOfWeapon(ref chosenItem, ref weapon, ref weapon1, ref weapon2, ref weapon3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref damage1, ref damage2, ref damage3);
             int slot = 1;
-            weapon.EquipGear(slot, player);
+        
+
             player.Damage = weapon.WeaponDamage;
-          
-         
+            return weapon.EquipGear(slot, player);
+
+
         }
 
     }

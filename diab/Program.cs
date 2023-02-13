@@ -17,20 +17,28 @@
             };     
             while (true)
             {
-                string? choise = SelectionScreen.ChooseHero();
-                if (Int32.TryParse(choise, out int choiseToInt) && choiseToInt > 0 && choiseToInt <= 4)
+                Console.WriteLine("Please press 1 - 4 to select a class");
+                try
                 {
-                    player.Class = PlayerClasses.PlayerClass(choiseToInt);
-                    HeroAttribute.SetStatPoints(player);
-                    player.ShowInformation();
-                    break;
+                    SelectionScreen.ChooseHero();
+                    int choise = int.Parse(Console.ReadLine());
+                    if (choise > 0 && choise <= 4)
+                    {
+                        player.Class = PlayerClasses.PlayerClass(choise);
+                        HeroAttribute.SetStatPoints(player);
+                        player.ShowInformation();
+                        break;
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    Console.WriteLine("Please press 1 - 4 to select a class");
+
+                    Console.WriteLine("Invalid Input please enter a number");
                 }
+              
             }
            
+        
             HandleUserAction.HandleUserActions(player);
 
 

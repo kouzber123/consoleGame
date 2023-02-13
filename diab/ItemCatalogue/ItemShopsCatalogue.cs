@@ -19,18 +19,24 @@
                     weaponsInInventory++;
                     Console.WriteLine($"{i}: {Enum.GetName(typeof(WeaponType), i)}");                  
                 }
-                Console.WriteLine("Choose a weapon.");
-                string? selectedWeapon = Console.ReadLine();
-
-                if (Int32.TryParse(selectedWeapon, out int selectedWeaponInt) && selectedWeapon != null && selectedWeaponInt > 0 && selectedWeaponInt < weaponsInInventory ) {
-
-                    return selectedWeaponInt;                  
-                }
-                else
+                
+                try
                 {
-                    Console.WriteLine("Please select a weaponType from 1-6");
-                    continue;
-                }              
+                    Console.WriteLine("Choose a weapon.");
+                    int selectedWeapon = int.Parse(Console.ReadLine()!);
+                    if (selectedWeapon > 0 && selectedWeapon < weaponsInInventory)
+                    {
+
+                        return selectedWeapon;
+                    }
+                }
+                catch (FormatException)
+                {
+
+                    Console.WriteLine("Please enter a correct number");
+                }
+            
+                        
             }
         }
 
@@ -48,19 +54,23 @@
                     armorsInInventory++;
                     Console.WriteLine($"{i}: {Enum.GetName(typeof(Armor.Armors), i)}");
                 }
-                Console.WriteLine("Choose an armor.");
-                string? selectedArmor = Console.ReadLine();
+                try
+                {
+                    Console.WriteLine("Choose an armor.");
+                    int selectedArmor = int.Parse(Console.ReadLine()!);
 
-                if (Int32.TryParse(selectedArmor, out int selectedArmorInt) && selectedArmor != null && selectedArmorInt > 0 && selectedArmorInt < armorsInInventory)
+                    if (selectedArmor > 0 && selectedArmor < armorsInInventory)
+                    {
+                        return selectedArmor;
+                    }
+                }
+                catch (FormatException)
                 {
 
-                    return selectedArmorInt;
+                    Console.WriteLine("Please type a number from 1-4");
                 }
-                else
-                {
-                    Console.WriteLine("Please select an Armor from 1-6");
-                    continue;
-                }
+             
+              
             }
         }
       

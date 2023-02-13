@@ -26,14 +26,14 @@
         /*
          RETURNS VALUE FOR USER
          */
-        public static string? ChooseHero()
+        public static void ChooseHero()
         {
             Console.WriteLine("Choose a class: ");
             Console.WriteLine("(1) Mage: ");
             Console.WriteLine("(2) Rogue: ");
             Console.WriteLine("(3) Archer: ");
             Console.WriteLine("(4) Warrior: ");
-            return Console.ReadLine();
+          
         }
 
         /*

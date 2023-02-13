@@ -59,8 +59,8 @@ namespace diab
         /// <returns></returns>
         public static string PlayerWeapon(int selectedWeaponType)
         {
-            string heroWeaponChoise = ((WeaponType)selectedWeaponType).ToString();
-            return heroWeaponChoise;
+            return ((WeaponType)selectedWeaponType).ToString();
+            
         }
     }
 }

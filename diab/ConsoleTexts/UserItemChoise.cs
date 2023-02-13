@@ -17,11 +17,10 @@ namespace diab.ConsoleTexts
             while (true)
             {
                 Console.WriteLine("Choose from 1-3");
-                string? userOption = Console.ReadLine();
-
-                if (Int32.TryParse(userOption, out int userOptionInt) && userOptionInt > 0 && userOptionInt < 4)
+                int userOption = int.Parse(Console.ReadLine()!);
+                if (userOption> 0 && userOption < 4)
                 {
-                    return userOptionInt;
+                    return userOption;
                 }
                 continue;
             }

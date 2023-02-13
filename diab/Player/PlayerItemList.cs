@@ -16,9 +16,9 @@ namespace diab
         /// <param name="WeaponType"></param>
         /// <param name="weapon"></param>
         /// <param name="player"></param>
-       public static void DisplayWeapons(string WeaponType, Weapon weapon, Player player)
+       public static string DisplayWeapons(string WeaponType, Weapon weapon, Player player)
         {
-            DisplayWeaponsSelection.DisplayWeaponList(WeaponType, weapon, player);
+           return  DisplayWeaponsSelection.DisplayWeaponList(WeaponType, weapon, player);
         }
 
 

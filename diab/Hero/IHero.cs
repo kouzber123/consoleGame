@@ -20,6 +20,7 @@
             Console.WriteLine("Name: " + name);
             Console.WriteLine("Level: " + level);
         }
+
         public int LevelUp(int level)
         {
             return level += level;
