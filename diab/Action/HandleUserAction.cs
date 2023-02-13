@@ -2,9 +2,15 @@
 {
     internal class HandleUserAction
     {
-        public static void HandleUserActions(Hero player)
+        /// <summary>
+        /// This is action bar for user actions
+        /// 6 options
+        /// 1) 1 level up, 2) Equip a gear > armor or weapon, 3) shows total damage, 4) total attributes, 5) status 6) quit game
+        /// </summary>
+        /// <param name="player"></param>
+        public static void HandleUserActions(Player player)
         {
-            //player.SetStatPoints(player.Class);
+         
           
             while (true)
             {
@@ -27,7 +33,7 @@
                     if (userSelectedActionInt == 1)
                     {
                         Console.Clear();
-                        PlayerClasses.LevelUp(ref player);
+                        LevelingAttribute.LevelUp(ref player);
                         Console.WriteLine("Level up! " + player.Level);
                     }
                     if (userSelectedActionInt == 2)
@@ -38,29 +44,59 @@
                         Console.WriteLine("(1) Weapons");
                         Console.WriteLine("(2) Gears");
                         int choose = int.Parse(Console.ReadLine()!);
-
+                        string playerSelectedGear;
                         if (choose == 1) //refactor later to differenct file
                         {
-                            int selectedWeaponType = ItemShopsCatalogue.ShowWeaponsCatalogue();
-                            string weaponType = Weapon.PlayerWeapon(selectedWeaponType);
-                            Console.WriteLine("selected weapontype {0}", weaponType);
+                        
                             Weapon weapon = new();
-                            PlayerItemList.DisplayWeapons(weaponType, weapon, player);
-                            SelectionScreen.ShowAcquiredItem(player.Weapon!, weapon.WeaponType!);
-                            Console.ReadKey();
-                            Console.Clear();
+                            int selectedWeaponType;
+       
+                            while (true)
+                            {
+                                selectedWeaponType = ItemShopsCatalogue.ShowWeaponsCatalogue();
+                                playerSelectedGear= weapon.EquipWeapon(selectedWeaponType, player);
+                                Console.WriteLine($"hello {playerSelectedGear}");
+                                if (playerSelectedGear == "")
+                                {
+                                    Console.WriteLine("You arent fit for that item type");
+                                    continue;                                
+                                }
+                                else
+                                {                               
+                                    break;
+                                }                          
+                            }
+                            Console.WriteLine("Selected: " + playerSelectedGear );
+                            PlayerItemList.DisplayWeapons(playerSelectedGear, weapon, player);
+                            SelectionScreen.ShowAcquiredItem(player.Weapon!, weapon.WeaponType!); // change
+                            Console.ReadKey();                     
                         }
                         if (choose == 2)
                         {
                             Console.Clear();
-                            int selectedArmorType = ItemShopsCatalogue.ShowArmorsCatalogue();
-                            string ArmorType = Armor.PlayerArmor(selectedArmorType);
-                            Console.WriteLine("selected armorType {0}", ArmorType);
+                            int selectedArmorType;
+                        
                             Armor armor = new();
-                            string name = PlayerItemList.DisplayArmors(ArmorType, armor, player); //create head, body, legs
-                            SelectionScreen.ShowAcquiredItem(name, armor.ArmorType!);
+                            while (true)
+                            {
+                                selectedArmorType = ItemShopsCatalogue.ShowArmorsCatalogue();
+                                playerSelectedGear =  armor.Equip(selectedArmorType, player);
+                                if (playerSelectedGear == "")
+                                {
+                                    Console.WriteLine("You arent fit for that item type");
+                                    continue;
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                            Console.WriteLine("Selected: " + playerSelectedGear);
+                            string name = PlayerItemList.DisplayArmors(playerSelectedGear, armor, player); //create head, body, legs
+                            SelectionScreen.ShowAcquiredItem(name, armor.ArmorType!); //change
                             Console.ReadKey();
-                         
+                        }
+                                                  
                         }
                     }
                     if (userSelectedActionInt == 3)
@@ -88,10 +124,8 @@
                     };
 
                 }
-
-
             }
 
         }
     }
-}
+

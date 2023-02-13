@@ -11,12 +11,12 @@ namespace diab
     internal class PlayerItemList
     {
 
-       public static void DisplayWeapons(string WeaponType, Weapon weapon, Hero player)
+       public static void DisplayWeapons(string WeaponType, Weapon weapon, Player player)
         {
             DisplayWeaponsSelection.DisplayWeaponList(WeaponType, weapon, player);
         }
 
-       public static string DisplayArmors(string ArmorType, Armor armor, Hero player)
+       public static string DisplayArmors(string ArmorType, Armor armor, Player player)
         {
            return DisplayArmorSelection.DisplayArmorList(ArmorType, armor, player);
         }

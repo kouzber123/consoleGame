@@ -12,15 +12,38 @@ namespace diab
         public int WeaponDamage { get; set; }
         public string? WeaponType { get => weaponType; }
 
-        public string EquipWeapon(int weapon)
+        public string EquipWeapon(int weapon, Player player)
         {
-            var result = PlayerWeapon(weapon);
-            if (result != null)
+            string? heroClass = player.Class;      
+            while (true)
             {
-                return weaponType = result;
-            }
+                if (weapon == 5 && heroClass == "Mage" || weapon == 7 && heroClass == "Mage")
+                {
+                 
+                    return weaponType = PlayerWeapon(weapon);
+                }
+                if ( weapon == 6 && heroClass == "Warrior" || weapon == 3 && heroClass == "Warrior" || weapon == 1 && heroClass == "Warrior" || weapon == 4 && heroClass == "Warrior")
+                {
+                    return weaponType = PlayerWeapon(weapon);
+                }
 
-            return null!;
+                if (weapon == 3 && heroClass == "Rogue" || weapon == 2 && heroClass == "Rogue")
+                {
+                    return weaponType = PlayerWeapon(weapon);
+                }
+                if (weapon == 2 && heroClass == "Ranger")
+                {
+                    return weaponType = PlayerWeapon(weapon);
+                }
+               
+                else
+                {
+              
+                    return ""; 
+                }
+            }
+           
+            
         }
 
         public static string PlayerWeapon(int selectedWeaponType)

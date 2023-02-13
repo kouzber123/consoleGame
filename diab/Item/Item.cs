@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static diab.Armor;
-
-namespace diab
+﻿namespace diab
 {
     public class Item
     {
@@ -22,13 +15,17 @@ namespace diab
             Legs = 4,
         }
 
-
-
-        public string EquipGear(int gear, Hero player)
+        /// <summary>
+        /// This will defend against level requirement and sets the gear in the right slot
+        /// </summary>
+        /// <param name="gear"></param>
+        /// <param name="player"></param>
+        /// <returns></returns>
+        public string EquipGear(int gear, Player player)
             //here use conditionals
         {
             var result = PlayerGear(gear);
-            if (result != null)
+            if (result != null && player.Level >= RequiredLevel)
             {
                 if (result == "Weapon")
                 {
@@ -37,6 +34,7 @@ namespace diab
                 if (result == "Head")
                 {
                     player.Head = Name;
+             
                 }
                 if (result == "Body")
                 {
@@ -44,14 +42,24 @@ namespace diab
                 }
                 if (result == "Legs")
                 {
-                    player.Legs = Name;
+                    player.Legs = Name;             
                 }
-                return Slot = result;
+            
             }
+            else
+            {
+                Console.WriteLine("You do not meet the requirements to equip that");
+            }
+            
+            Slot = result;
+            return Name!;  
+    }
 
-            return null!;
-        }
-
+        /// <summary>
+        /// This gets the correct enum for gear
+        /// </summary>
+        /// <param name="slot"></param>
+        /// <returns></returns>
         public static string PlayerGear(int slot)
         {
             string heroWeaponChoise = ((Slots)slot).ToString();

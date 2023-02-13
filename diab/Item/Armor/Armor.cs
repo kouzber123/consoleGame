@@ -1,4 +1,6 @@
-﻿namespace diab
+﻿using System.Numerics;
+
+namespace diab
 {
     public class Armor : Item
     {
@@ -15,18 +17,39 @@
             plate = 4,
         }
 
-        public string Equip(int armor)
+        public string Equip(int armor, Player player)
         {
-            var result = PlayerArmor(armor);
-            if (result != null)
+            string? heroClass = player.Class;
+            while (true)
             {
-                return armorType = result;
-            }
+                if (armor == 1 && heroClass == "Mage")
+                {
 
-            return null!;
+                    return armorType = PlayerArmor(armor);
+                }
+                if (armor == 3 && heroClass == "Warrior" || armor == 4 && heroClass == "Warrior" || armor == 2 && heroClass == "Warrior")
+                {
+                    return armorType = PlayerArmor(armor);
+                }
+
+                if (armor == 2 && heroClass == "Rogue")
+                {
+                    return armorType = PlayerArmor(armor); ;
+                }
+                if (armor == 2 && heroClass == "Ranger")
+                {
+                    return armorType = PlayerArmor(armor);
+                }
+
+                else
+                {
+
+                    return "";
+                }
+            }
         }
 
-        public static string PlayerArmor(int selectedArmorType)
+            public static string PlayerArmor(int selectedArmorType)
         {
             string heroWeaponChoise = ((Armors)selectedArmorType).ToString();
             return heroWeaponChoise;

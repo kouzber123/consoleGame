@@ -6,7 +6,7 @@
         {
 
 
-            Hero player = new()
+            Player player = new()
             {
                 HeroName = SelectionScreen.PlayerGivenName()
                 
@@ -17,7 +17,7 @@
                 if (Int32.TryParse(choise, out int choiseToInt) && choiseToInt > 0 && choiseToInt <= 4)
                 {
                     player.Class = PlayerClasses.PlayerClass(choiseToInt);
-                    PlayerClasses.SetStatPoints(player);
+                    HeroAttribute.SetStatPoints(player);
                     player.ShowInformation();
                     break;
                 }

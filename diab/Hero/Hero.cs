@@ -1,6 +1,6 @@
 ﻿namespace diab
 {
-    public class Hero
+    public abstract class Hero
     {
 
         public string? HeroName { get; set; } //tom
@@ -54,10 +54,7 @@
                 Console.WriteLine("{0} {1}", gearSlot.Key, gearSlot.Value);
             }
         }
-        public static void ShowCurrentGear()
-        {
 
-        }
         public void ShowInformation()
         {
             TotalStats();

@@ -10,6 +10,7 @@ namespace diab
     {
         public static void PlayerChoiseOfWeapon(ref int chosenItem, ref Weapon weapon, ref string weapon1, ref string weapon2, ref string weapon3, ref int lvlreq1, ref int lvlreq2, ref int lvlreq3, ref int damage1, ref int damage2, ref int damage3)
         {
+            
             if (chosenItem == 1)
             {
                 PlayerSelectedGear.SetWeapon(weapon, weapon1, lvlreq1, damage1);

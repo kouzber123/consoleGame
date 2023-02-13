@@ -16,15 +16,14 @@ namespace diab
         /// <param name="armor"></param>
         /// <param name="player"></param>
         /// <returns></returns>
-        public static string DisplayArmorList(string ArmorType, Armor armor, Hero player)
+        public static string DisplayArmorList(string ArmorType, Armor armor, Player player)
         {
             string? gear1="", gear2="", gear3 = "";
-            int lvlreq1=0, lvlreq2=0, lvlreq3 = 0, defense1 = 0, defense2 = 0, defense3 = 0, chosenItem = 0, armorType = 0, slot = 0;
+            int lvlreq1=0, lvlreq2=0, lvlreq3 = 0, defense1 = 0, defense2 = 0, defense3 = 0, chosenItem = 0, slot = 0;
             switch (ArmorType)
             {
                 case "cloth":
                     Console.Clear();
-                    armorType = 1;
                     int choise = ShowGearSlotsOptions.ShowGearSlotOption();
 
                     if (choise == 1)
@@ -63,16 +62,17 @@ namespace diab
                         chosenItem = UserItemChoise.GetUserInput(); ;                      
                         slot = 4;
                     }
+                    //player choise sets name, lvl req and defense
                     SetArmor.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
-                    armor.Equip(armorType);
+                    
+                  
                     player.Defense += armor.ArmorDefense;
-                    armor.EquipGear(slot, player);
-                    return armor.Name!;
+                    //here we equiq 
+                    return armor.EquipGear(slot, player);
 
 
                 case "leather":
                     Console.Clear();
-                    armorType = 2;
                     choise = ShowGearSlotsOptions.ShowGearSlotOption();
                     if (choise == 1)
                     {
@@ -111,13 +111,13 @@ namespace diab
                     }
                     SetArmor.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
                     player.Defense += armor.ArmorDefense;
-                    armor.Equip(armorType);
-                    armor.EquipGear(slot, player);
-                    return armor.Name!;
+              
+                    return armor.EquipGear(slot, player);
+                    
+                   
 
                 case "mail":
                     Console.Clear();
-                    armorType = 3;
                     choise = ShowGearSlotsOptions.ShowGearSlotOption();
 
                     if (choise == 1)
@@ -158,13 +158,11 @@ namespace diab
                     };
                     SetArmor.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
                     player.Defense += armor.ArmorDefense;
-                    armor.Equip(armorType);
-                    armor.EquipGear(slot, player);
-                    return armor.Name!;
+
+                    return armor.EquipGear(slot, player);
 
                 case "plate":
                     Console.Clear();
-                    armorType = 4;
                     choise = ShowGearSlotsOptions.ShowGearSlotOption();
 
                     if (choise == 1)
@@ -203,11 +201,9 @@ namespace diab
                         slot = 4;
                     }
                     SetArmor.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
-                    armor.Equip(armorType);
+                   
                     player.Defense = armor.ArmorDefense;
-                    armor.EquipGear(slot, player);
-
-                    return armor.Name!;
+                    return armor.EquipGear(slot, player);
 
                 default:
                     return "";
