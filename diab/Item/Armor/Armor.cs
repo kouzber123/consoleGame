@@ -17,6 +17,12 @@ namespace diab
             plate = 4,
         }
 
+        /// <summary>
+        /// defends against inccorect armor and playclass types
+        /// </summary>
+        /// <param name="armor"></param>
+        /// <param name="player"></param>
+        /// <returns></returns>
         public string Equip(int armor, Player player)
         {
             string? heroClass = player.Class;
@@ -49,6 +55,11 @@ namespace diab
             }
         }
 
+        /// <summary>
+        /// Returns play armor type as string
+        /// </summary>
+        /// <param name="selectedArmorType"></param>
+        /// <returns></returns>
             public static string PlayerArmor(int selectedArmorType)
         {
             string heroWeaponChoise = ((Armors)selectedArmorType).ToString();

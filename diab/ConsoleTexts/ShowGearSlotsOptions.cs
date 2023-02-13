@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace diab.ConsoleTexts
+namespace diab
 {
     public class ShowGearSlotsOptions
     {
+        /// <summary>
+        /// Shop item options for armor slots return user input value
+        /// </summary>
+        /// <returns></returns>
         public static int ShowGearSlotOption()
         {
             while (true)

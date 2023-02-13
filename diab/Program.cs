@@ -2,15 +2,19 @@
 {
     internal class Program
     {
+
+        /// <summary>
+        /// Starting file character is init by name
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
 
 
             Player player = new()
             {
-                HeroName = SelectionScreen.PlayerGivenName()
-                
-            };
+                HeroName = SelectionScreen.PlayerGivenName()            
+            };     
             while (true)
             {
                 string? choise = SelectionScreen.ChooseHero();

@@ -10,7 +10,7 @@ namespace diab
     public class DisplayArmorSelection
     {
         /// <summary>
-        /// Shows the options of the armor this function handles changing user gear
+        /// Shows the options of the armor this function handles changing user gear this is repetive code
         /// </summary>
         /// <param name="ArmorType"></param>
         /// <param name="armor"></param>

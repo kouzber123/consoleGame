@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace diab
 {
-    //THIS IS ENUM FOR WEAPONS TYPES 
+     
+    /// <summary>
+    /// Responsible for enum of weaponType
+    /// </summary>
     public enum WeaponType
     {
         Axe = 1,

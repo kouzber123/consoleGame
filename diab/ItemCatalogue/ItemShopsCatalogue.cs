@@ -1,7 +1,14 @@
 ﻿namespace diab
 {
+    /// <summary>
+    /// Handles adisplaying weapons and armors
+    /// </summary>
     internal class ItemShopsCatalogue
     {
+        /// <summary>
+        /// Loops enum data and return userinput
+        /// </summary>
+        /// <returns></returns>
         public static int ShowWeaponsCatalogue() 
         {
             int weaponsInInventory = 1;
@@ -26,6 +33,11 @@
                 }              
             }
         }
+
+        /// <summary>
+        /// Loop enum and show data of armors types return user input
+        /// </summary>
+        /// <returns></returns>
         public static int ShowArmorsCatalogue()
         {
             int armorsInInventory = 1;

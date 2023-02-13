@@ -1,6 +1,6 @@
 ﻿namespace diab
 {
-    abstract class HeroAttribute
+    public abstract class HeroAttribute
     {
         /*
          methods to add 2  instances together and return the or increa the one instance by speciefied amount

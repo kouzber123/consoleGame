@@ -3,7 +3,7 @@
     internal class PlayerSelectedGear
     {
         /// <summary>
-        /// Set armor or weapon stats 
+        /// Set weapon stats 
         /// </summary>
         /// <param name="weapon"></param>
         /// <param name="name"></param>
@@ -15,6 +15,14 @@
             weapon.RequiredLevel = lvl;
             weapon.WeaponDamage = damage;
         }
+
+        /// <summary>
+        /// Set armor status
+        /// </summary>
+        /// <param name="armor"></param>
+        /// <param name="name"></param>
+        /// <param name="lvl"></param>
+        /// <param name="defense"></param>
         public static void SetArmor(Armor armor, string name, int lvl, int defense)
         {
             armor.Name = name;

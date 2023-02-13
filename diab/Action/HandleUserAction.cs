@@ -10,8 +10,6 @@
         /// <param name="player"></param>
         public static void HandleUserActions(Player player)
         {
-         
-          
             while (true)
             {
                 string? userSelectedAction = SelectionScreen.ActionList();
@@ -23,7 +21,6 @@
                 }
                 else
                 {
-                    //create another function
                     if (userSelectedActionInt == 6)
                     {
                         Console.Clear();
@@ -39,11 +36,7 @@
                     if (userSelectedActionInt == 2)
                     {
                         //Equip a gear > choose gear option > weapon or armor > inventory
-                        Console.Clear();
-                        Console.WriteLine("|GEAR HUB|");
-                        Console.WriteLine("(1) Weapons");
-                        Console.WriteLine("(2) Gears");
-                        int choose = int.Parse(Console.ReadLine()!);
+                        int choose = SelectWeaponOrArmor.SelectWeaponOrArmors();
                         string playerSelectedGear;
                         if (choose == 1) //refactor later to differenct file
                         {
@@ -112,9 +105,7 @@
                         //total attributes = show total attribute
                     }
                     if (userSelectedActionInt == 5)
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Hero Current Status");
+                    {                       
                         player.ShowInformation();
                     }
                     else

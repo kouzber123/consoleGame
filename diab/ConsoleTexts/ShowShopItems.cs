@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace diab
 {
+    /// <summary>
+    /// Show individual item, takes care of repetition
+    /// </summary>
      public class ShowShopItems
         {
         /*

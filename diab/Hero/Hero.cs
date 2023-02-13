@@ -1,6 +1,6 @@
 ﻿namespace diab
 {
-    public abstract class Hero
+    public abstract class Hero : HeroAttribute
     {
 
         public string? HeroName { get; set; } //tom
@@ -9,10 +9,6 @@
 
         public int LevelAttributes { get; set; }  // base + 3 / 2 / 1 * 10 times
         private int totalStats;
-
-        public int Str { get; set; }
-        public int Dex { get; set; }
-        public int Magic { get; set; }
 
         private string? weapon = null;
         private int damage = 0;
@@ -28,11 +24,20 @@
         public string? Body { get => body; set => body = value; }
         public string? Legs { get => legs; set => legs = value; }
 
+        /// <summary>
+        /// Show player total stats
+        /// </summary>
         public void TotalStats()
         {
             totalStats = Str + Dex + Magic;
         }
 
+        
+        /// <summary>
+        /// Show total damage based on class 
+        /// </summary>
+        /// <param name="playerClass"></param>
+        /// <returns></returns>
         public int GetTotalDamage(string playerClass)
         {
             if (playerClass == "Warrior" || playerClass == "Archer" || playerClass == "Rogue")
@@ -41,6 +46,10 @@
             }
             else return Damage + Magic;
         }
+
+        /// <summary>
+        /// Display current equipped gear, also dictioray
+        /// </summary>
         public void Slots()
         {
             var gearSlots = new Dictionary<string, string>(){
@@ -55,8 +64,13 @@
             }
         }
 
+        /// <summary>
+        /// Displays user status
+        /// </summary>
         public void ShowInformation()
         {
+            Console.Clear();
+            Console.WriteLine("Hero Current Status");
             TotalStats();
             Console.WriteLine("-----------------------------------------");
             Console.WriteLine("PLAYER STATUS:");

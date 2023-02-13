@@ -8,6 +8,10 @@ namespace diab.ConsoleTexts
 {
     public class UserItemChoise
     {
+        /// <summary>
+        /// display choise and return int 1-3
+        /// </summary>
+        /// <returns></returns>
         public static int GetUserInput()
         {
             while (true)

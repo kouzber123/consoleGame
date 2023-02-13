@@ -2,6 +2,11 @@
 {
     public class SelectionScreen
     {
+
+        /// <summary>
+        /// Handles user name input with min len of  2
+        /// </summary>
+        /// <returns></returns>
         public static string PlayerGivenName()
         {
             while (true)
