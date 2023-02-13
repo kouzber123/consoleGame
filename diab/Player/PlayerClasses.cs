@@ -97,6 +97,7 @@ namespace diab
             }
 
             hero.Level++;
+
         }
 
     }

@@ -11,17 +11,17 @@ namespace diab
         private string? weaponType;
         public int WeaponDamage { get; set; }
         public string? WeaponType { get => weaponType; }
- 
+
         public string EquipWeapon(int weapon)
         {
-           var result = PlayerWeapon(weapon);
+            var result = PlayerWeapon(weapon);
             if (result != null)
             {
-              return  weaponType = result;
+                return weaponType = result;
             }
 
             return null!;
-        }  
+        }
 
         public static string PlayerWeapon(int selectedWeaponType)
         {

@@ -18,5 +18,5 @@ namespace diab
         Wand = 7
 
     }
-  
+
 }

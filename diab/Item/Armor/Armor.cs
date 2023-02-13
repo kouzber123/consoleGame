@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace diab
+﻿namespace diab
 {
     public class Armor : Item
     {
@@ -13,7 +7,8 @@ namespace diab
         public int ArmorDefense { get; set; }
         public string? ArmorType { get => armorType; }
 
-        public enum Armors {
+        public enum Armors
+        {
             cloth = 1,
             leather = 2,
             mail = 3,

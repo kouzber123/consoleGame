@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace diab
+﻿namespace diab
 {
     internal class PlayerSelectedGear
     {
         public static void SetWeapon(Weapon weapon, string name, int lvl, int damage)
         {
-            weapon.Name= name;
-            weapon.RequiredLevel= lvl;
+            weapon.Name = name;
+            weapon.RequiredLevel = lvl;
             weapon.WeaponDamage = damage;
-        } 
+        }
         public static void SetArmor(Armor armor, string name, int lvl, int defense)
         {
-            armor.Name= name;
-            armor.RequiredLevel= lvl;
+            armor.Name = name;
+            armor.RequiredLevel = lvl;
             armor.ArmorDefense = defense;
         }
     }

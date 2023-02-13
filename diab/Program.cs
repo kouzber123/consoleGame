@@ -1,21 +1,24 @@
-﻿using System.Numerics;
-
-namespace diab
+﻿namespace diab
 {
     internal class Program
     {
         static void Main(string[] args)
-        {          
-                Console.WriteLine("Hello, Adventurer!");
-                Hero player = new();
-                Console.WriteLine("Enter a name: ");
-                player.HeroName = Console.ReadLine();
+        {
+
+
+            Hero player = new()
+            {
+                HeroName = SelectionScreen.PlayerGivenName()
+                
+            };
             while (true)
             {
                 string? choise = SelectionScreen.ChooseHero();
                 if (Int32.TryParse(choise, out int choiseToInt) && choiseToInt > 0 && choiseToInt <= 4)
                 {
                     player.Class = PlayerClasses.PlayerClass(choiseToInt);
+                    PlayerClasses.SetStatPoints(player);
+                    player.ShowInformation();
                     break;
                 }
                 else
@@ -23,6 +26,7 @@ namespace diab
                     Console.WriteLine("Please press 1 - 4 to select a class");
                 }
             }
+           
             HandleUserAction.HandleUserActions(player);
 
 
