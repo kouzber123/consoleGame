@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace diab
+﻿namespace diab
 {
     /// <summary>
     /// Show individual item, takes care of repetition
     /// </summary>
-     public class ShowShopItems
+    public class ShowShopItems
         {
         /*
       TEMPLATE FOR SHOWING SHOP CONTENT
