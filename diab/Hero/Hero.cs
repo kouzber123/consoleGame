@@ -1,92 +1,49 @@
 ﻿namespace diab
 {
-    public abstract class Hero : HeroAttribute
+
+    /// <summary>
+    /// Hero handles setting class and name
+    /// </summary>
+    public abstract class Hero
     {
-
-        public string? HeroName { get; set; } //tom
-        public string? Class { get; set; } //warrior
-        public int Level { get; set; }  // 10
-
-        public int LevelAttributes { get; set; }  // base + 3 / 2 / 1 * 10 times
-        private int totalStats;
-
-        private string? weapon = null;
-        private int damage = 0;
-        private int defense = 0;
-        private string? head = null;
-        private string? body = null;
-        private string? legs = null;
-
-        public string? Weapon { get => weapon; set => weapon = value; }
-        public int Damage { get => damage; set => damage = value; }
-        public int Defense { get => defense; set => defense = value; }
-        public string? Head { get => head; set => head = value; }
-        public string? Body { get => body; set => body = value; }
-        public string? Legs { get => legs; set => legs = value; }
-
-        /// <summary>
-        /// Show player total stats
-        /// </summary>
-        public void TotalStats()
-        {
-            totalStats = Str + Dex + Magic;
-        }
-
         
         /// <summary>
-        /// Show total damage based on class 
+        /// this class contains correct heroclass
         /// </summary>
-        /// <param name="playerClass"></param>
+        public HeroClass Class { get; set; }
+
+        public int Level { get; set; }
+
+        /// <summary>
+        /// Player class sets these and we get hero class here and so we can use their methods
+        /// </summary>
+        /// <param name="heroName"></param>
+        /// <param name="heroClass"></param>
+        public Hero(int level, HeroClass heroClass) {
+           
+            Level = level;
+            Class = heroClass;           
+        }
+
+        /// <summary>
+        /// Generates damage output with correct stats of class
+        /// </summary>
+        /// <param name="player"></param>
         /// <returns></returns>
-        public int GetTotalDamage(string playerClass)
+        public int Damage(Player player)
         {
-            if (playerClass == "Warrior" || playerClass == "Archer" || playerClass == "Rogue")
-            {
-                return Damage + Str + Dex;
-            }
-            else return Damage + Magic;
+           return Class.Damage(player);
+    
         }
 
         /// <summary>
-        /// Display current equipped gear, also dictioray
+        /// LEVEL UP WITH CORRECT CLASS with class.llvup
         /// </summary>
-        public void Slots()
+        /// <param name="player"></param>
+        public void LevelUp(Player player)
         {
-            var gearSlots = new Dictionary<string, string>(){
-            {"Weapon", weapon! },
-             {"Head", head!},
-             {"Body", body!},
-             {"Legs", legs!}
-            };
-            foreach (var gearSlot in gearSlots)
-            {
-                Console.WriteLine("{0} {1}", gearSlot.Key, gearSlot.Value);
-            }
+            Class.LevelUp(player);
         }
-
-        /// <summary>
-        /// Displays user status
-        /// </summary>
-        public void ShowInformation()
-        {
-            Console.Clear();
-            Console.WriteLine("Hero Current Status");
-            TotalStats();
-            Console.WriteLine("-----------------------------------------");
-            Console.WriteLine("PLAYER STATUS:");
-            Console.WriteLine("Class: " + Class);
-            Console.WriteLine("Name: " + HeroName);
-            Console.WriteLine("Level: " + Level);
-            Console.WriteLine("Status: Str {0}, Dex {1}, Magic {2}", Str, Dex, Magic);
-            Console.WriteLine("Total stats: {0}", totalStats);
-            Console.WriteLine("-----------------------------------------");
-            Console.WriteLine("INVENTORY:");
-            Slots();
-            Console.WriteLine("-----------------------------------------");
-            Console.WriteLine();
-
-        }
-
-        //get inheritence form other places
+      
     }
 }

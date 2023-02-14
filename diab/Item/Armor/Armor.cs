@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Numerics;
-using System.Reflection;
-
-namespace diab
+﻿namespace diab
 {
     public class Armor : Item
     {
@@ -27,7 +23,7 @@ namespace diab
         /// <returns></returns>
         public string Equip(int armor, Player player)
         {
-            string? heroClass = player.Class;
+            string? heroClass = player.Class.ClassName;
             while (true)
             {
                 if (armor == 1 && heroClass == "Mage")

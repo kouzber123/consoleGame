@@ -28,7 +28,7 @@
                         if (userSelectedAction == 1)
                         {
                             Console.Clear();
-                            LevelingAttribute.LevelUp(ref player);
+                            player.LevelUp(player);
                             Console.WriteLine("Level up! " + player.Level);
                         }
                         if (userSelectedAction == 2)
@@ -66,7 +66,7 @@
                                         }
                                         else
                                         {
-                                            Console.WriteLine(player.Class+" cannot use this type of weapon: " + Weapon.PlayerWeapon(selectedWeaponType));
+                                            Console.WriteLine(player.Class.ClassName+" cannot use this type of weapon: " + Weapon.PlayerWeapon(selectedWeaponType));
                                         }
                                        
                                     }
@@ -113,7 +113,7 @@
                                      }
                                         else
                                         {
-                                            Console.WriteLine(player.Class+ " Cannot wear that type of armor " + Armor.PlayerArmor(selectedArmorType));
+                                            Console.WriteLine(player.Class.ClassName+ " Cannot wear that type of armor " + Armor.PlayerArmor(selectedArmorType));
                                         }
                                   
                                     }
@@ -131,8 +131,9 @@
                     {
                         //damage option show how much dmg player does
                         Console.Clear();
-                        int damage = player.GetTotalDamage(player.Class!);
+                        int damage = player.Damage(player);
                         Console.WriteLine("Total damage : " + damage);
+                        
 
                     }
                     if (userSelectedAction == 4)
@@ -141,7 +142,7 @@
                     }
                     if (userSelectedAction == 5)
                     {
-                        player.ShowInformation();
+                        ShowPlayerInformation.ShowInformation(player);
                     }
 
                 }

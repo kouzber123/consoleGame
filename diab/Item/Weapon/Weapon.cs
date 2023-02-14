@@ -20,7 +20,7 @@ namespace diab
         /// <returns></returns>
         public string EquipWeapon(int weapon, Player player)
         {
-            string? heroClass = player.Class;      
+            string? heroClass = player.Class.ClassName;      
             while (true)
             {
                 if (weapon == 5 && heroClass == "Mage" || weapon == 7 && heroClass == "Mage")

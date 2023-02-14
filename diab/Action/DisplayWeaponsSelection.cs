@@ -1,11 +1,4 @@
-﻿using diab.ConsoleTexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace diab
+﻿namespace diab
 {
     public class DisplayWeaponsSelection
 
