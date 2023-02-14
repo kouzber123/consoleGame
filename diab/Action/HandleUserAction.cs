@@ -1,4 +1,6 @@
-﻿namespace diab
+﻿using static diab.CheckItemType;
+
+namespace diab
 { 
 
     internal class HandleUserAction
@@ -32,7 +34,7 @@
                             player.LevelUp(player);
                             Console.WriteLine("Level up! " + player.Level);
                             
-                            Console.WriteLine(player.CheckWeaponType("Sword"));
+                            Console.WriteLine(player.CheckItemType("Sword"));
                         }
                         if (userSelectedAction == 2)
                         {
@@ -48,7 +50,8 @@
                                 {
 
                                     selectedWeaponType = ItemShopsCatalogue.ShowWeaponsCatalogue();
-                                    playerSelectedGear = weapon.EquipWeapon(selectedWeaponType, player);
+                                  
+                                    playerSelectedGear = IsCorrectGearType(selectedWeaponType,new OptionalClassParams { Class1 = weapon, Class2= null! }, player);
                                     try
                                     {
                                         
@@ -64,7 +67,7 @@
                                             }
                                             else
                                             {
-                                                Console.WriteLine("Selected: " + playerSelectedGear + " is not eligible for you!");
+                                                Console.WriteLine("Selected: " + playerSelectedGear + " is too high level for you, level required" + weapon.RequiredLevel);
                                             }
                                         }
                                         else
@@ -89,8 +92,10 @@
                                 Armor armor = new();
                                 while (true)
                                 {
+                                
                                     selectedArmorType = ItemShopsCatalogue.ShowArmorsCatalogue();
-                                    playerSelectedGear = armor.Equip(selectedArmorType, player);
+
+                                    playerSelectedGear = IsCorrectGearType(selectedArmorType, new OptionalClassParams { Class1 = null!, Class2 = armor }, player);
                                     try
                                     {
                                        
@@ -110,7 +115,7 @@
                                             }
                                             else
                                             {
-                                                Console.WriteLine("Level is too low");
+                                                Console.WriteLine("Level is too low required level: " + armor.RequiredLevel);
 
                                             }
                                      }

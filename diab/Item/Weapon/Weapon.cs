@@ -4,7 +4,7 @@
     {
         private string? weaponType;
         public int WeaponDamage { get; set; }
-        public string? WeaponType { get => weaponType; }
+        public string? WeaponType { get => weaponType;}
 
         /// <summary>
         /// This is against incorrect user select relation to class and weapon type
@@ -12,25 +12,11 @@
         /// <param name="weapon"></param>
         /// <param name="player"></param>
         /// <returns></returns>
-        public string EquipWeapon(int weapon, Player player)
+        /// 
+        public string SetWeaponType(string type)
         {
-            string CurrentEquippedWeapon = PlayerWeapon(weapon);
-            while (true)
-            {
-                if (player.CheckWeaponType(CurrentEquippedWeapon)) {
-
-                    return weaponType = CurrentEquippedWeapon;
-                }
-                else
-                {
-              
-                    return ""; 
-                }
-            }
-           
-            
+            return weaponType = type;
         }
-
         /// <summary>
         /// return the weapon type in string
         /// </summary>

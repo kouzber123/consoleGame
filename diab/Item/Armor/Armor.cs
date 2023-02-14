@@ -9,10 +9,10 @@
 
         public enum Armors
         {
-            cloth = 1,
-            leather = 2,
-            mail = 3,
-            plate = 4,
+            Cloth = 1,
+            Leather = 2,
+            Mail = 3,
+            Plate = 4,
         }
 
         /// <summary>
@@ -21,35 +21,10 @@
         /// <param name="armor"></param>
         /// <param name="player"></param>
         /// <returns></returns>
-        public string Equip(int armor, Player player)
+
+        public string SetArmorType(string type)
         {
-            string? heroClass = player.Class.ClassName;
-            while (true)
-            {
-                if (armor == 1 && heroClass == "Mage")
-                {
-
-                    return armorType = PlayerArmor(armor);
-                }
-                if (armor == 3 && heroClass == "Warrior" || armor == 4 && heroClass == "Warrior" || armor == 2 && heroClass == "Warrior")
-                {
-                    return armorType = PlayerArmor(armor);
-                }
-
-                if (armor == 2 && heroClass == "Rogue")
-                {
-                    return armorType = PlayerArmor(armor); ;
-                }
-                if (armor == 2 && heroClass == "Ranger")
-                {
-                    return armorType = PlayerArmor(armor);
-                   
-                }
-                else
-                {
-                    return "";
-                }
-            }
+            return armorType = type;
         }
 
         /// <summary>
@@ -57,7 +32,7 @@
         /// </summary>
         /// <param name="selectedArmorType"></param>
         /// <returns></returns>
-            public static string PlayerArmor(int selectedArmorType)
+        public static string PlayerArmor(int selectedArmorType)
         {
             return ((Armors)selectedArmorType).ToString();
             

@@ -9,21 +9,14 @@
   
         readonly string[] armorType = { "Leather", "Mail", "Plate" };
         readonly string[] weaponType = { "Sword", "Dagger", "Axe", "Hammer" };
-        readonly List<string> weaponTypes = new();
-        readonly List<string> armorTypes = new();
-        public override string ArmorRestrictions(string armor) //cloth
+        readonly List<string> itemTypes = new();
+    
+        public override string GearRestrictions(string item)
         {
-            armorTypes.AddRange(armorType);
-
-            return armorTypes.Find(x => x == armor); //return if doesnt exist here
+            itemTypes.AddRange(armorType.Union(weaponType));          
+            return itemTypes.Find(x => x == item);
         }
 
-        public override string WeaponRestrictions(string weapon)
-        {
-            weaponTypes.AddRange(weaponType);
-            return weaponTypes.Find(x => x == weapon);
-
-        }
         /// <summary>
         ///     Calculates player dmg based on class + lvl and weapon dmg
         /// </summary>

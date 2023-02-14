@@ -26,11 +26,11 @@
         }
         
         
-        public bool CheckWeaponType(string weapon)
+        public bool CheckItemType(string item)
         {
-          string test = Class.WeaponRestrictions(weapon);
+          string IsRestricted = Class.GearRestrictions(item);
           
-            if(test != null)
+            if(IsRestricted != null)
             {
                 return true;
             }

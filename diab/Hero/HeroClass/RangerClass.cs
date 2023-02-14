@@ -14,21 +14,12 @@ namespace diab
         public override int Magic => 1;
 
         readonly string[] armorType = { "Leather" };
-        readonly List<string> armorTypes = new();
         readonly string[] weaponType = { "Bow" };
-        readonly List<string> weaponTypes = new();
-        public override string ArmorRestrictions(string armor) //cloth
+        readonly List<string> itemTypes = new();
+        public override string GearRestrictions(string item)
         {
-            armorTypes.AddRange(armorType);
-
-            return armorTypes.Find(x => x == armor); //return if doesnt exist here
-        }
-
-        public override string WeaponRestrictions(string weapon)
-        {
-            weaponTypes.AddRange(weaponType);
-            return weaponTypes.Find(x => x == weapon);
-
+            itemTypes.AddRange(armorType.Union(weaponType));
+            return itemTypes.Find(x => x == item);
         }
 
 

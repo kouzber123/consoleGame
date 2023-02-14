@@ -15,7 +15,7 @@
             int lvlreq1=0, lvlreq2=0, lvlreq3 = 0, defense1 = 0, defense2 = 0, defense3 = 0, chosenItem = 0, slot = 0;
             switch (ArmorType)
             {
-                case "cloth":
+                case "Cloth":
                     Console.Clear();
                     int choise = ShowGearSlotsOptions.ShowGearSlotOption();
 
@@ -64,7 +64,7 @@
                     return armor.EquipGear(slot, player);
 
 
-                case "leather":
+                case "Leather":
                     Console.Clear();
                     choise = ShowGearSlotsOptions.ShowGearSlotOption();
                     if (choise == 1)
@@ -107,9 +107,7 @@
               
                     return armor.EquipGear(slot, player);
                     
-                   
-
-                case "mail":
+                case "Mail":
                     Console.Clear();
                     choise = ShowGearSlotsOptions.ShowGearSlotOption();
 
@@ -154,7 +152,7 @@
 
                     return armor.EquipGear(slot, player);
 
-                case "plate":
+                case "Plate":
                     Console.Clear();
                     choise = ShowGearSlotsOptions.ShowGearSlotOption();
 

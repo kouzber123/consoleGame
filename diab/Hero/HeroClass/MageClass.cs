@@ -12,22 +12,15 @@ namespace diab
         readonly string[] armorType = { "Cloth" };
         readonly string[] weaponType = { "Staff", "Wand" };
 
-        readonly List<string> weaponTypes = new();
-        readonly List<string> armorTypes = new();
-        public override string ArmorRestrictions(string armor) //cloth
-        {
-            armorTypes.AddRange(armorType);
+        readonly List<string> itemTypes = new();
 
-            return armorTypes.Find(x => x == armor); //return if doesnt exist here
-        }
-       
-        public override string WeaponRestrictions(string weapon)
+        public override string GearRestrictions(string item)
         {
-            weaponTypes.AddRange(weaponType);
-            return weaponTypes.Find(x => x == weapon);
-            
+            itemTypes.AddRange(armorType.Union(weaponType));
+            return itemTypes.Find(x => x == item);
         }
-        
+
+
         /// <summary>
         ///     Calculates player dmg based on class + lvl and weapon dmg
         /// </summary>
