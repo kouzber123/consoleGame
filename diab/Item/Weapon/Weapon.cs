@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace diab
+﻿namespace diab
 {
     public class Weapon : Item
     {
@@ -20,28 +14,13 @@ namespace diab
         /// <returns></returns>
         public string EquipWeapon(int weapon, Player player)
         {
-            string? heroClass = player.Class.ClassName;      
+            string CurrentEquippedWeapon = PlayerWeapon(weapon);
             while (true)
             {
-                if (weapon == 5 && heroClass == "Mage" || weapon == 7 && heroClass == "Mage")
-                {
-                 
-                    return weaponType = PlayerWeapon(weapon);
-                }
-                if ( weapon == 6 && heroClass == "Warrior" || weapon == 3 && heroClass == "Warrior" || weapon == 1 && heroClass == "Warrior" || weapon == 4 && heroClass == "Warrior")
-                {
-                    return weaponType = PlayerWeapon(weapon);
-                }
+                if (player.CheckWeaponType(CurrentEquippedWeapon)) {
 
-                if (weapon == 3 && heroClass == "Rogue" || weapon == 2 && heroClass == "Rogue")
-                {
-                    return weaponType = PlayerWeapon(weapon);
+                    return weaponType = CurrentEquippedWeapon;
                 }
-                if (weapon == 2 && heroClass == "Ranger")
-                {
-                    return weaponType = PlayerWeapon(weapon);
-                }
-               
                 else
                 {
               

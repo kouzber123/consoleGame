@@ -31,6 +31,8 @@
                             Console.Clear();
                             player.LevelUp(player);
                             Console.WriteLine("Level up! " + player.Level);
+                            
+                            Console.WriteLine(player.CheckWeaponType("Sword"));
                         }
                         if (userSelectedAction == 2)
                         {

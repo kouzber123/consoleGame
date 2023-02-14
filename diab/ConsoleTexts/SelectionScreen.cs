@@ -1,8 +1,6 @@
 ﻿namespace diab
-{
-    public class SelectionScreen
+{   public class SelectionScreen
     {
-
         /// <summary>
         /// Handles user name input with min len of  2
         /// </summary>
@@ -19,8 +17,7 @@
                     return name;
                 }
                 continue;
-            } 
-     
+            }     
         }
 
         /*

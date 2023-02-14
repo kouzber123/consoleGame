@@ -24,7 +24,19 @@
             Level = level;
             Class = heroClass;           
         }
-
+        
+        
+        public bool CheckWeaponType(string weapon)
+        {
+          string test = Class.WeaponRestrictions(weapon);
+          
+            if(test != null)
+            {
+                return true;
+            }
+            return false;
+             
+        }
         /// <summary>
         /// Generates damage output with correct stats of class
         /// </summary>
@@ -32,6 +44,7 @@
         /// <returns></returns>
         public int Damage(Player player)
         {
+
            return Class.Damage(player);
     
         }

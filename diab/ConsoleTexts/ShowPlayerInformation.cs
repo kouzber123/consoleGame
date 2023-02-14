@@ -23,7 +23,7 @@ namespace diab
             Console.WriteLine("-----------------------------------------");
             Console.WriteLine("PLAYER STATUS:");
             Console.WriteLine("Class: " + player.Class.ClassName);
-            Console.WriteLine("Name: " + player.HeroName);
+            Console.WriteLine("Name: " + player.PlayerName);
             Console.WriteLine("Level: " + player.Level);
             Console.WriteLine("Status: Str {0}, Dex {1}, Magic {2}", player.Str, player.Dex, player.Magic);
             Console.WriteLine("Total stats: {0}", player.TotalStats());

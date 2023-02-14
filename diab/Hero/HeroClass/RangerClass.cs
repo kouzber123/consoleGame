@@ -6,13 +6,30 @@ using System.Threading.Tasks;
 
 namespace diab
 {
-    internal class RangerClass: HeroClass
+    internal class RangerClass : HeroClass
     {
         public override string ClassName => "Ranger";
         public override int Str => 1;
         public override int Dex => 7;
         public override int Magic => 1;
 
+        readonly string[] armorType = { "Leather" };
+        readonly List<string> armorTypes = new();
+        readonly string[] weaponType = { "Bow" };
+        readonly List<string> weaponTypes = new();
+        public override string ArmorRestrictions(string armor) //cloth
+        {
+            armorTypes.AddRange(armorType);
+
+            return armorTypes.Find(x => x == armor); //return if doesnt exist here
+        }
+
+        public override string WeaponRestrictions(string weapon)
+        {
+            weaponTypes.AddRange(weaponType);
+            return weaponTypes.Find(x => x == weapon);
+
+        }
 
 
         /// <summary>
@@ -35,29 +52,3 @@ namespace diab
         }
     }
 }
-
-/*
-    case "Mage":
-                    player.Str += 1;
-                    player.Dex += 1;
-                    player.Magic += 8;
-                    break;
-                case "Archer":
-                    player.Str += 1;
-                    player.Dex += 7;
-                    player.Magic += 1;
-                    break;
-                case "Rogue":
-                    player.Str += 2;
-                    player.Dex += 6;
-                    player.Magic += 1;
-                    break;
-                case "Warrior":
-                    player.Str += 5;
-                    player.Dex += 2;
-                    player.Magic += 1;
-                    break;
-                default:
-                    break;
- 
- */

@@ -28,7 +28,7 @@
             PlayerName = playerName;
             Str = heroClass.Str;
             Dex = heroClass.Dex;
-            Magic = heroClass.Magic;
+            Magic = heroClass.Magic;         
 
         }
         public string? Weapon { get => weapon; set => weapon = value; }
@@ -44,6 +44,7 @@
         public int TotalStats()
         {
             return Str + Dex + Magic;
+
         }
 
         /// <summary>
