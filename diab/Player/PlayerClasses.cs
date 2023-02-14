@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace diab
+﻿namespace diab
 {
     /// <summary>
     /// PlayrClasses handles level and stats related functionalities

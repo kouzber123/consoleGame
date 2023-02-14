@@ -1,5 +1,6 @@
 ﻿namespace diab
-{
+{ 
+
     internal class HandleUserAction
     {
         /// <summary>

@@ -6,7 +6,16 @@
         public override int Str => 1;
         public override int Dex => 1;
         public override int Magic => 8;
+        
+        public static void CanUseWeapon()
+        {
+            // Creating a List of integers
+            List<string> weaponType = new List<string>();
 
+            // displaying the number
+            // of elements of List<T>
+            
+        }
 
         /// <summary>
         ///     Calculates player dmg based on class + lvl and weapon dmg
@@ -17,7 +26,7 @@
         {
             return player.Damage + player.Magic;
         }
-
+       
         public override void LevelUp(Player player)
         {
             player.Str +=1;

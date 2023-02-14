@@ -7,7 +7,7 @@
         public override int Dex => 6;
         public override int Magic => 1;
 
-
+        string[] weaponTypes = { "Bow" };
         /// <summary>
         ///     Calculates player dmg based on class + lvl and weapon dmg
         /// </summary>

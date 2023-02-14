@@ -6,7 +6,7 @@
         public override int Str => 5;
         public override int Dex => 2;
         public override int Magic => 1;
-
+        string[] weaponTypes = { "Sword", "Dagger", "Axe", "Hammer" };
         /// <summary>
         ///     Calculates player dmg based on class + lvl and weapon dmg
         /// </summary>
