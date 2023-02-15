@@ -33,9 +33,69 @@
             return  Str + Dex + Magic;
         }
 
-        public static int TotalAttribute(int item1, int item2, int item3)
+        public static int TotalAttribute(Player player, int num)
         {
-            return item1 + item2 + item3;
+            switch (num)
+            {
+                case 1:
+                    if (player.Head == null && player.Body == null && player.Legs == null)
+                    {
+                        return 0;
+                    }
+                    if (player.Head != null && player.Body == null && player.Legs == null)
+                    {
+                        return player.Head.Str;
+                    }
+                    if (player.Head != null && player.Body != null && player.Legs == null)
+                    {
+                        return player.Head.Str + player.Body.Str;
+                    }
+                    else
+                    {
+                        return player.Head.Str + player.Body.Str + player.Legs.Str;
+                    }
+                case 2:
+                    if (player.Head == null && player.Body == null && player.Legs == null)
+                    {
+                        return 0;
+                    }
+                    if (player.Head != null && player.Body == null && player.Legs == null)
+                    {
+                        return player.Head.Dex;
+                    }
+                    if (player.Head != null && player.Body != null && player.Legs == null)
+                    {
+                        return player.Head.Dex + player.Body.Dex;
+                    }
+                    else
+                    {
+                        return player.Head.Dex + player.Body.Dex + player.Legs.Dex;
+                    }
+         
+                    case 3:
+                   if (player.Head == null && player.Body == null && player.Legs == null)
+                     {
+                    return 0;
+                    }
+                     if (player.Head != null && player.Body == null && player.Legs == null)
+                    {
+                return player.Head.Magic;
+                 }
+                    if (player.Head != null && player.Body != null && player.Legs == null)
+                {
+                     return player.Head.Magic + player.Body.Magic;
+                  }
+                     else
+            {
+                return player.Head.Magic + player.Body.Magic + player.Legs.Magic;
+            }
+                     default:
+                        break;
+                 }
+
+            return 0;
+          
+            
         }
 
         /// <summary>

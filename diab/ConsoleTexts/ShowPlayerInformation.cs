@@ -26,10 +26,13 @@ namespace diab
             Console.WriteLine("Class: " + player.Class.ClassName);
             Console.WriteLine("Name: " + player.PlayerName);
             Console.WriteLine("Level: " + player.Level);
-            Console.WriteLine("Status: Str {0}, Dex {1}, Magic {2}",player.Str, player.Dex,player.Magic
-
-                ); 
-            Console.WriteLine("Total stats: {0}", player.TotalStats());
+            Console.WriteLine("Total Status points: Str {0}, Dex {1}, Magic {2}",
+                player.Class.TotalAttribute(player.Str, Armor.TotalAttribute(player, 1)),
+                player.Class.TotalAttribute(player.Dex, Armor.TotalAttribute(player, 2)),
+                player.Class.TotalAttribute(player.Magic, Armor.TotalAttribute(player, 3))
+               );
+             
+            Console.WriteLine("Total level attributes: {0}", player.TotalStats());
             Console.WriteLine("-----------------------------------------");
             Console.WriteLine("INVENTORY:");
             player.Slots();
