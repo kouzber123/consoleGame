@@ -17,6 +17,7 @@ namespace diab
         /// </summary>
         public static void ShowInformation(Player player)
         {
+            
             Console.Clear();
             Console.WriteLine("Hero Current Status");
             player.TotalStats();
@@ -25,7 +26,9 @@ namespace diab
             Console.WriteLine("Class: " + player.Class.ClassName);
             Console.WriteLine("Name: " + player.PlayerName);
             Console.WriteLine("Level: " + player.Level);
-            Console.WriteLine("Status: Str {0}, Dex {1}, Magic {2}", player.Str, player.Dex, player.Magic);
+            Console.WriteLine("Status: Str {0}, Dex {1}, Magic {2}",player.Str, player.Dex,player.Magic
+
+                ); 
             Console.WriteLine("Total stats: {0}", player.TotalStats());
             Console.WriteLine("-----------------------------------------");
             Console.WriteLine("INVENTORY:");

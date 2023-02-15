@@ -21,9 +21,9 @@
         /// <param name="armor"></param>
         /// <param name="player"></param>
         /// <returns></returns>
-       public static string DisplayArmors(string ArmorType, Armor armor, Player player)
+       public static string DisplayArmors(string ArmorType, Player player)
         {
-           return DisplayArmorSelection.DisplayArmorList(ArmorType, armor, player);
+           return DisplayArmorSelection.DisplayArmorList(ArmorType ,player);
         }
     }
 }

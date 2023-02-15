@@ -8,9 +8,9 @@
         /*
       TEMPLATE FOR SHOWING SHOP CONTENT
       */
-        public static void ShowShopItem(string name1, int lvl, int stats)
+        public static void ShowShopItem(string name1, int lvl)
         {
-            Console.WriteLine($"Name: {name1}  lvl requirement: {lvl} stat bonus: {stats} ");
+            Console.WriteLine($"Name: {name1}  lvl requirement: {lvl}, Stat bonus is secret.... ");
 
         }
         /*

@@ -9,11 +9,18 @@ namespace diab
         /// This is action bar for user actions
         /// 6 options
         /// 1) 1 level up, 2) Equip a gear > armor or weapon, 3) shows total damage, 4) total attributes, 5) status 6) quit game
+        /// 
+        /// we create new armor and weapon class, armor we only need to check the type and weapon will be user weapon
         /// </summary>
         /// <param name="player"></param>
+        /// 
+
         public static void HandleUserActions(Player player)
         {
-            
+            Armor armor = new();
+            Weapon weapon = new();
+         
+
             while (true)
             {
                try
@@ -44,7 +51,8 @@ namespace diab
                             if (choose == 1) //refactor later to differenct file
                             {
 
-                                Weapon weapon = new();
+           
+                               
                                 int selectedWeaponType;
                                 while (true)
                                 {
@@ -57,11 +65,12 @@ namespace diab
                                         
                                         if (playerSelectedGear != "")
                                         {
+                                        
                                             Console.WriteLine("Selected: " + playerSelectedGear);
                                             string selectedweapon = PlayerItemList.DisplayWeapons(playerSelectedGear, weapon, player);
                                             if(selectedweapon != null)
                                             {
-                                                SelectionScreen.ShowAcquiredItem(player.Weapon.Name!, weapon.WeaponType!); // change
+                                                SelectionScreen.ShowAcquiredItem(player.Weapon!.Name!, weapon.WeaponType!); // change
                                                 Console.ReadKey();
                                                 break;
                                             }
@@ -89,7 +98,7 @@ namespace diab
                             {
                                 Console.Clear();
                                 int selectedArmorType;
-                                Armor armor = new();
+                               
                                 while (true)
                                 {
                                 
@@ -101,21 +110,24 @@ namespace diab
                                        
                                         if (playerSelectedGear != "")
                                     {
+                                         
                                             Console.WriteLine("Selected: " + playerSelectedGear);
-                                            string name = PlayerItemList.DisplayArmors(playerSelectedGear, armor, player); //create head, body, legs
+                                            string name = PlayerItemList.DisplayArmors(playerSelectedGear, player); //create head, body, legs
                                             Console.WriteLine("-------");
                                             Console.WriteLine("name "+name);
                                             Console.WriteLine("selected gear "+playerSelectedGear);
+
+                          
                                             if(name != null)
                                             {
-                                                
+
                                                 SelectionScreen.ShowAcquiredItem(name, armor.ArmorType!); //change
                                                 Console.ReadKey();
                                                 break;
                                             }
                                             else
                                             {
-                                                Console.WriteLine("Level is too low required level: " + armor.RequiredLevel);
+                                                Console.WriteLine("Level is too low required level: " + name);
 
                                             }
                                      }
@@ -137,7 +149,7 @@ namespace diab
                     }
                     if (userSelectedAction == 3)
                     {
-                        //damage option show how much dmg player does
+                      
                         Console.Clear();
                         int damage = player.Damage(player);
                         Console.WriteLine("Total damage : " + damage);
@@ -146,7 +158,9 @@ namespace diab
                     }
                     if (userSelectedAction == 4)
                     {
-                        //total attributes = show total attribute
+                        Console.Clear();
+                        Console.WriteLine("Your total stats from levels and gear: ");
+                        Console.WriteLine(player.Class.TotalAttributes(player));
                     }
                     if (userSelectedAction == 5)
                     {

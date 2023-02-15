@@ -11,9 +11,9 @@
         {
 
 
-            Weapon weapon = new Weapon();
-            Armor armor= new Armor();
-            Player player = new(SelectionScreen.PlayerGivenName(), 1, ChoosePlayerClass.ChooseClass(), weapon, armor);        
+
+            Player? player = new(SelectionScreen.PlayerGivenName(), 1, ChoosePlayerClass.ChooseClass());
+
             HandleUserAction.HandleUserActions(player);
 
 

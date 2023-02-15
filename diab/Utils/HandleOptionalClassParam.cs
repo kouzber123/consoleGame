@@ -2,13 +2,13 @@
 {
          public class OptionalClassParams
         {
-            private Weapon weapon;
-            private Armor armor;
+            private Weapon? weapon;
+            private Armor? armor;
        
 
             public Weapon Class1
             {
-                get { return weapon; }
+                get { return weapon!; }
                 set
                 {
                     weapon = value;
@@ -18,7 +18,7 @@
 
             public Armor Class2
             {
-                get { return armor; }
+                get { return armor!; }
                 set
                 {
                     armor = value;

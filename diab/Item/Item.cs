@@ -2,6 +2,7 @@
 {
     public class Item
     {
+      
         public string? Name { get; set; } //helmet of speed
         public int RequiredLevel { get; set; } //8
 
@@ -14,55 +15,11 @@
         }
 
         /// <summary>
-        /// This will defend against level requirement and sets the gear in the right slot
-        /// </summary>
-        /// <param name="gear"></param>
-        /// <param name="player"></param>
-        /// <returns></returns>
-        public string EquipGear(int gear, Player player)
-        //here use conditionals
-        {
-            string result = PlayerGear(gear);
-            try
-            {
-                if (result != null && player.Level >= RequiredLevel)
-                {
-                    if (result == "Weapon")
-                    {
-                        player.Weapon.Name= Name;
-                    }
-                    if (result == "Head")
-                    {
-                        player.Head = Name;
-                    }
-                    if (result == "Body")
-                    {
-                        player.Body = Name;
-                    }
-                    if (result == "Legs")
-                    {
-                        player.Legs = Name;
-                    }
-                    return Name!;
-                }
-
-            }
-            catch (ArgumentException)
-            {
-
-                Console.WriteLine("Player given type is unexpected ");
-            }
-            return null!;
-          
-
-        }
-              
-        /// <summary>
         /// This gets the correct enum for gear
         /// </summary>
         /// <param name="slot"></param>
         /// <returns></returns>
-        public static string PlayerGear(int slot)
+        public static string SelectedPlayerGear(int slot)
         {
             string heroWeaponChoise = ((Slots)slot).ToString();
             return heroWeaponChoise;

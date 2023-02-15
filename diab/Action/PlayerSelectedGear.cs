@@ -9,13 +9,11 @@
         /// <param name="name"></param>
         /// <param name="lvl"></param>
         /// <param name="damage"></param>
-        public static void SetWeapon(Weapon weapon, string name, int lvl, int damage)
+        public static void SetWeapon(Weapon weapon)
         {
-            weapon.Name = name;
-            weapon.RequiredLevel = lvl;
-            weapon.SetDamage(damage);
-
-            
+            //weapon.Name = name;
+            //weapon.RequiredLevel = lvl;
+            //weapon.SetDamage(damage);
         }
 
         /// <summary>
@@ -25,12 +23,12 @@
         /// <param name="name"></param>
         /// <param name="lvl"></param>
         /// <param name="defense"></param>
-        public static void SetArmor(Armor armor, string name, int lvl, int defense)
+        public static void SetArmor(Armor armor, string name, int lvl, int gearStats)
         {
             armor.Name = name;
             armor.RequiredLevel = lvl;
-            armor.ArmorDefense = defense;
-           
+            armor.GearStats = gearStats;
+
         }
     }
 }

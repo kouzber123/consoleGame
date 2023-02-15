@@ -28,9 +28,34 @@ namespace diab
         /// <returns></returns>
         public override int Damage(Player player)
         {
-            return (player.Weapon.WeaponDamage == 0 ? 1 : player.Weapon.WeaponDamage) * (1 + player.Magic / 100);
+            return (player.Weapon!.WeaponDamage == 0 ? 1 : player.Weapon.WeaponDamage) * (1 + player.Magic / 100);
         }
-       
+
+        public override int TotalAttributes(Player player)
+        {
+            if (player.Head == null && player.Body == null && player.Legs == null)
+            {
+                return player.TotalStats();
+            } 
+            if (player.Head != null && player.Body == null && player.Legs == null)
+            {
+                return player.TotalStats() + player.Head.TotalAttributes();
+            } 
+            if (player.Head != null && player.Body != null && player.Legs == null)
+            {
+                return player.TotalStats() + player.Head!.TotalAttributes() + player.Body!.TotalAttributes();
+            }
+            else
+            {
+                return (player.TotalStats() + player.Head!.TotalAttributes() + player.Body!.TotalAttributes() + player.Legs!.TotalAttributes());
+            }
+
+        }
+
+        public override int TotalAttribute(int attribute, int armorAttribute)
+        {
+            return attribute + armorAttribute;
+        }
         public override void LevelUp(Player player)
         {
             player.Str +=1;

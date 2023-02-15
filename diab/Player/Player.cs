@@ -9,38 +9,24 @@
         public int Str { get; set; }
         public int Dex { get; set; }
         public int Magic { get; set; }
-
-        //private string? weapon = null;
-        //private int damage = 0;
-        private int defense = 0;
-        private string? head = null;
-        private string? body = null;
-        private string? legs = null;
-        private string? weapon = null;
         /// <summary>
         /// set name and stats based on class 
         /// </summary>
         /// <param name="playerName"></param>
         /// <param name="level"></param>
         /// <param name="heroClass"></param>
-        public Player(string playerName, int level, HeroClass heroClass, Weapon weapon) : base(level, heroClass)
+        public Player(string playerName, int level, HeroClass heroClass) : base(level, heroClass)
         {
             PlayerName = playerName;
             Str = heroClass.Str;
             Dex = heroClass.Dex;
-            Magic = heroClass.Magic;
-            Weapon = weapon;        
-           
+            Magic = heroClass.Magic; 
 
         }
-        public Weapon Weapon { get; set; }
-      
-        public string? PlayerWeapon { get => weapon; set  => weapon =  value; }
-        public int Defense { get => defense; set => defense = value; }
-        public string? Head { get => head; set => head = value; }
-        public string? Body { get => body; set => body = value; }
-        public string? Legs { get => legs; set => legs = value; }
-
+        public Weapon? Weapon { get; set; }
+        public Armor? Head { get; set; }
+        public Armor? Body { get; set; }
+        public Armor? Legs { get; set; }
         /// <summary>
         /// Show player total stats
         /// </summary>
@@ -49,17 +35,17 @@
             return Str + Dex + Magic;
 
         }
-
+       
         /// <summary>
         /// Display current equipped gear, also dictioray
         /// </summary>
         public void Slots()
         {
             var gearSlots = new Dictionary<string, string>(){
-            {"Weapon", Weapon.Name!},
-             {"Head", head!},
-             {"Body", body!},
-             {"Legs", legs!}
+            {"Weapon", Weapon! == null ? null! : $"{Weapon.Name} Damage: {Weapon.WeaponDamage}" },
+            { "Head", Head! == null ? null! : $"{Head.Name} | Str:{Head.Str}| Dex: {Head.Dex} | Magic: {Head.Magic}"},
+             {"Body", Body! == null ? null! :  $"{Body.Name}| Str:{Body.Str}| Dex: {Body.Dex} | Magic: {Body.Magic}"},
+             {"Legs", Legs! == null ? null! : $"{Legs.Name} | Str:{Legs.Str}| Dex: {Legs.Dex} | Magic: {Legs.Magic}"}
             };
             foreach (var gearSlot in gearSlots)
             {
@@ -67,7 +53,7 @@
             }
         }
 
-    }
+        }
 }
 
 

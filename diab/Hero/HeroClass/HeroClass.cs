@@ -8,8 +8,9 @@
         public abstract string ClassName { get; }
         public abstract int Damage(Player player);
 
-        //public abstract string  ArmorRestrictions(string armor);
-        //public abstract string WeaponRestrictions(string weapon);
+        public abstract int TotalAttributes(Player player);
+
+        public abstract int TotalAttribute(int x, int y);
         public abstract string GearRestrictions(string weapon);
   
 
