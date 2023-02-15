@@ -10,29 +10,32 @@
         public int Dex { get; set; }
         public int Magic { get; set; }
 
-        private string? weapon = null;
-        private int damage = 0;
+        //private string? weapon = null;
+        //private int damage = 0;
         private int defense = 0;
         private string? head = null;
         private string? body = null;
         private string? legs = null;
-
+        private string? weapon = null;
         /// <summary>
         /// set name and stats based on class 
         /// </summary>
         /// <param name="playerName"></param>
         /// <param name="level"></param>
         /// <param name="heroClass"></param>
-        public Player(string playerName, int level, HeroClass heroClass) : base(level, heroClass)
+        public Player(string playerName, int level, HeroClass heroClass, Weapon weapon) : base(level, heroClass)
         {
             PlayerName = playerName;
             Str = heroClass.Str;
             Dex = heroClass.Dex;
-            Magic = heroClass.Magic;         
+            Magic = heroClass.Magic;
+            Weapon = weapon;        
+           
 
         }
-        public string? Weapon { get => weapon; set => weapon = value; }
-        public new int Damage { get => damage; set => damage = value; }
+        public Weapon Weapon { get; set; }
+      
+        public string? PlayerWeapon { get => weapon; set  => weapon =  value; }
         public int Defense { get => defense; set => defense = value; }
         public string? Head { get => head; set => head = value; }
         public string? Body { get => body; set => body = value; }
@@ -53,7 +56,7 @@
         public void Slots()
         {
             var gearSlots = new Dictionary<string, string>(){
-            {"Weapon", weapon! },
+            {"Weapon", Weapon.Name!},
              {"Head", head!},
              {"Body", body!},
              {"Legs", legs!}

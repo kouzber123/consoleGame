@@ -13,7 +13,9 @@
         {
             weapon.Name = name;
             weapon.RequiredLevel = lvl;
-            weapon.WeaponDamage = damage;
+            weapon.SetDamage(damage);
+
+            
         }
 
         /// <summary>
@@ -28,6 +30,7 @@
             armor.Name = name;
             armor.RequiredLevel = lvl;
             armor.ArmorDefense = defense;
+           
         }
     }
 }

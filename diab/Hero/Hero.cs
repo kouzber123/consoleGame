@@ -45,7 +45,7 @@
         public int Damage(Player player)
         {
 
-           return Class.Damage(player);
+            return Class.Damage(player) ;
     
         }
 

@@ -4,7 +4,7 @@
     {
         public string? Name { get; set; } //helmet of speed
         public int RequiredLevel { get; set; } //8
-        public string? Slot { get; set; } //head
+
         public enum Slots
         {
             Weapon = 1,
@@ -29,12 +29,11 @@
                 {
                     if (result == "Weapon")
                     {
-                        player.Weapon = Name;
+                        player.Weapon.Name= Name;
                     }
                     if (result == "Head")
                     {
                         player.Head = Name;
-
                     }
                     if (result == "Body")
                     {
@@ -44,7 +43,6 @@
                     {
                         player.Legs = Name;
                     }
-                    Slot = result;
                     return Name!;
                 }
 
@@ -58,8 +56,7 @@
           
 
         }
-    
-           
+              
         /// <summary>
         /// This gets the correct enum for gear
         /// </summary>

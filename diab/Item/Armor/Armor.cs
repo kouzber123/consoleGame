@@ -3,7 +3,7 @@
     public class Armor : Item
     {
         //THIS IS ARMOR PLACE
-        private string? armorType;
+        private string? armorType = null;
         public int ArmorDefense { get; set; }
         public string? ArmorType { get => armorType; }
 

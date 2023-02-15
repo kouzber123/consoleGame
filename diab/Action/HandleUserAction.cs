@@ -61,7 +61,7 @@ namespace diab
                                             string selectedweapon = PlayerItemList.DisplayWeapons(playerSelectedGear, weapon, player);
                                             if(selectedweapon != null)
                                             {
-                                                SelectionScreen.ShowAcquiredItem(player.Weapon!, weapon.WeaponType!); // change
+                                                SelectionScreen.ShowAcquiredItem(player.Weapon.Name!, weapon.WeaponType!); // change
                                                 Console.ReadKey();
                                                 break;
                                             }

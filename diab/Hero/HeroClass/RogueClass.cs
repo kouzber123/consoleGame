@@ -25,7 +25,7 @@
         /// <returns></returns>
         public override int Damage(Player player)
         {
-            return player.Damage + player.Dex;
+            return (player.Weapon.WeaponDamage == 0 ? 1 : player.Weapon.WeaponDamage) * (1 + player.Dex / 100);
         }
 
         public override void LevelUp(Player player)

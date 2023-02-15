@@ -17,7 +17,7 @@ namespace diab
         public override string GearRestrictions(string item)
         {
             itemTypes.AddRange(armorType.Union(weaponType));
-            return itemTypes.Find(x => x == item);
+            return itemTypes.Find(x => x == item)!;
         }
 
 
@@ -28,7 +28,7 @@ namespace diab
         /// <returns></returns>
         public override int Damage(Player player)
         {
-            return player.Damage + player.Magic;
+            return (player.Weapon.WeaponDamage == 0 ? 1 : player.Weapon.WeaponDamage) * (1 + player.Magic / 100);
         }
        
         public override void LevelUp(Player player)

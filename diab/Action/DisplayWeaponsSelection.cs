@@ -91,7 +91,8 @@
             int slot = 1;
         
 
-            player.Damage = weapon.WeaponDamage;
+            player.Weapon = weapon;
+            player.PlayerWeapon = weapon.Name;
             return weapon.EquipGear(slot, player);
 
 

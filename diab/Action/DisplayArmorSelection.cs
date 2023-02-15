@@ -57,8 +57,8 @@
                     }
                     //player choise sets name, lvl req and defense
                     SetArmor.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
-                    
-                  
+                    player.Armor = armor;
+
                     player.Defense += armor.ArmorDefense;
                     //here we equiq 
                     return armor.EquipGear(slot, player);
@@ -104,7 +104,7 @@
                     }
                     SetArmor.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
                     player.Defense += armor.ArmorDefense;
-              
+                    player.Armor = armor;
                     return armor.EquipGear(slot, player);
                     
                 case "Mail":
@@ -149,7 +149,7 @@
                     };
                     SetArmor.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
                     player.Defense += armor.ArmorDefense;
-
+                    player.Armor = armor;
                     return armor.EquipGear(slot, player);
 
                 case "Plate":
@@ -193,7 +193,7 @@
                     }
                     SetArmor.PlayerChoiseOfArmor(ref chosenItem, ref armor, ref gear1, ref gear2, ref gear3, ref lvlreq1, ref lvlreq2, ref lvlreq3, ref defense1, ref defense2, ref defense3);
                    
-                    player.Defense = armor.ArmorDefense;
+                    //player.Defense = armor.ArmorDefense;
                     return armor.EquipGear(slot, player);
 
                 default:

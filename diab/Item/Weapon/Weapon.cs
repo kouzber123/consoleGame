@@ -2,9 +2,10 @@
 {
     public class Weapon : Item
     {
-        private string? weaponType;
-        public int WeaponDamage { get; set; }
-        public string? WeaponType { get => weaponType;}
+        private string? weaponType = null;
+        public int damage = 0;
+        public int WeaponDamage { get => damage; }
+        public string? WeaponType { get => weaponType; }
 
         /// <summary>
         /// This is against incorrect user select relation to class and weapon type
@@ -17,6 +18,11 @@
         {
             return weaponType = type;
         }
+        public int SetDamage(int dmg)
+        {
+            return damage = dmg;
+        }
+
         /// <summary>
         /// return the weapon type in string
         /// </summary>
