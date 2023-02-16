@@ -16,10 +16,6 @@ namespace PlayerClassTests.ArmorTest
         {
             //Arrange
             string name = "Tom";
-            int level = 1;
-            int str = 1;
-            int dex = 7;
-            int magic = 1;
             HeroClass mageClass = new MageClass();
             Armor plate = new() {Name = "test", Dex=4, Magic=0, Str=10, RequiredLevel=1};
             plate.SetArmorType("Plate");
@@ -41,12 +37,43 @@ namespace PlayerClassTests.ArmorTest
                 Weapon = new(),
             };
 
-            Assert.Null(player.Class.GearRestrictions(plate.ArmorType));
-            Assert.Null(player.Class.GearRestrictions(mail.ArmorType));
-            Assert.Null(player.Class.GearRestrictions(leather.ArmorType));
-            Assert.NotNull(player.Class.GearRestrictions(cloth.ArmorType));
+            Assert.False(player.Class.GearRestrictions(plate.ArmorType));
+            Assert.False(player.Class.GearRestrictions(mail.ArmorType));
+            Assert.False(player.Class.GearRestrictions(leather.ArmorType));
+            Assert.True(player.Class.GearRestrictions(cloth.ArmorType));
+
+            Assert.False(player.CheckItemType(plate.ArmorType));
+            Assert.False(player.CheckItemType(mail.ArmorType));
+            Assert.False(player.CheckItemType(leather.ArmorType));
+            Assert.True(player.CheckItemType(cloth.ArmorType));
+        }
+        [Fact]
+     
+        public void MageClassCannotWearPlate_MailORLeatherResult_ThrowException()
+        {
+            //Arrange
+            string name = "Tom";
+            HeroClass mageClass = new MageClass();
+            Armor plate = new() { Name = "test", Dex = 4, Magic = 0, Str = 10, RequiredLevel = 1 };
+            plate.SetArmorType("Plate");
+
+            //Act
+            Player player = new(name, 1, mageClass)
+            {
+                Head = new(),
+                Body = new(),
+                Legs = new(),
+                Weapon = new(),
+            };
+
+            Assert.Throws<InvalidArmorException>( () => player.Body = plate);
+          
+
+
         }
     }
     #endregion
+
 }
+
 

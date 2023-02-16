@@ -2,13 +2,13 @@
 {
     public class InvalidWeaponException : Exception
         {
-            readonly string Type;
-            readonly string ClassName;
-            public InvalidWeaponException(string className, string type) : base()
-            {
-                Type = type;
-                ClassName = className;
-            }
-            public override string Message => ClassName + " cannot equip Weapontype: " + Type;
-        }  
+
+        public InvalidWeaponException() : base("Invalid weapon type") { }
+        public InvalidWeaponException(string message) : base(message)
+        {
+
+        }
+
+        public InvalidWeaponException(string message, Exception innerException) : base(message, innerException) { }
+    }  
 }

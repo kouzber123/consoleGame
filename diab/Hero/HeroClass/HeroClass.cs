@@ -11,7 +11,7 @@
         public abstract int TotalAttributes(Player player);
 
         public abstract int TotalAttribute(int x, int y);
-        public abstract string GearRestrictions(string weapon);
+        public abstract bool GearRestrictions(string weapon);
   
 
     }

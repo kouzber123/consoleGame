@@ -4,7 +4,6 @@
     {
         //THIS IS ARMOR PLACE
         private string? armorType = null;
-        private int gearStats = 0;
 
         private int str = 0;
         private int dex = 0;
@@ -13,13 +12,9 @@
         public int Dex { get => dex; set => dex = value; }
         public int Magic { get => magic; set => magic = value; }
 
+        public string? ArmorType { get => armorType;  }
 
-
-        //convert stats based on class? or based on gear
-        public int GearStats { get => gearStats; set => gearStats = value; }
-        public string? ArmorType { get => armorType; }
-
-
+       
         public enum Armors
         {
             Cloth = 1,
@@ -65,6 +60,7 @@
         /// <returns></returns>
         public string SetArmorType(string type)
         {
+           
             return armorType = type;
         }
 

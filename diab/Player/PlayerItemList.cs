@@ -1,6 +1,6 @@
 ﻿namespace diab
 {
-    internal class PlayerItemList
+    public class PlayerItemList
     {
         /// <summary>
         /// This handles calling correct weapon list

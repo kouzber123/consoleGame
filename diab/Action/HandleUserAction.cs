@@ -55,8 +55,7 @@
                                 while (true)
                                 {
 
-                                    selectedWeaponType = ItemShopsCatalogue.ShowWeaponsCatalogue();
-                                  
+                                    selectedWeaponType = ItemShopsCatalogue.ShowWeaponsCatalogue();                                
                                     playerSelectedGear = CheckItemType.IsCorrectGearType(selectedWeaponType,new OptionalClassParams { Class1 = weapon, Class2= null! }, player);
                                     try
                                     {
@@ -66,9 +65,10 @@
                                         
                                             Console.WriteLine("Selected: " + playerSelectedGear);
                                             string selectedweapon = PlayerItemList.DisplayWeapons(playerSelectedGear, weapon, player);
+                                            Console.WriteLine(selectedweapon);
                                             if(selectedweapon != null)
                                             {
-                                                SelectionScreen.ShowAcquiredItem(player.Weapon!.Name!, weapon.WeaponType!); // change
+                                                SelectionScreen.ShowAcquiredItem(player.Weapon.Name, player.Weapon.WeaponType); // change
                                                 Console.ReadKey();
                                                 break;
                                             }
@@ -76,19 +76,13 @@
                                             {
                                                 Console.WriteLine("Selected: " + playerSelectedGear + " is too high level for you, level required" + weapon.RequiredLevel);
                                             }
-                                        }
-                                        else
-                                        {
-                                            throw new InvalidWeaponException(player.Class.ClassName,Weapon.PlayerWeapon(selectedWeaponType));
-                                        }
-                                       
+                                        }                                                        
                                     }
-                                    catch (ArgumentNullException)
+                                    catch (InvalidWeaponException m)
                                     {
 
-                                        Console.WriteLine("Something unexpectedr");
-                                    }
-                                  
+                                        Console.WriteLine(m.Message);
+                                    }                                
                                 }
                             
                             }
@@ -122,11 +116,6 @@
                                             {
                                                 Console.WriteLine("Level is too low for item ");
                                             }
-                                            
-                                        }
-                                        else
-                                        {
-                                            throw new InvalidArmorException(player.Class.ClassName, Armor.PlayerArmor(selectedArmorType));
                                             
                                         }
                                   

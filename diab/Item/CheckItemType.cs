@@ -1,6 +1,6 @@
 ﻿namespace diab
 {
-    internal class CheckItemType
+    public class CheckItemType
     {
        /// <summary>
        /// Pass optional class because we have two types of class that needs checking - weapon and armor;
@@ -15,31 +15,51 @@
             while (true)
             {
                 if (item.Class2 == null)
-
-                {
-                    CurrentEquippepItem = Weapon.PlayerWeapon(itemType);
-                    if (player.CheckItemType(CurrentEquippepItem))
+                    try
                     {
+                        {
+                            CurrentEquippepItem = Weapon.PlayerWeapon(itemType);
+                            if (player.CheckItemType(CurrentEquippepItem))
+                            {
 
-                        return item.Class1.SetWeaponType(CurrentEquippepItem);
+                                return item.Class1.SetWeaponType(CurrentEquippepItem);
+                            }
+                            else
+                            {
+                               throw new InvalidWeaponException( CurrentEquippepItem+" Cannot be worn by "+player.HeroClass);
+                                
+                            }
+                        }
                     }
-                    else
+                    catch (InvalidWeaponException m)
                     {
+
+                        Console.WriteLine(m.Message);
                         return "";
-                    }                
-                }
+                    }
+             
                 if (item.Class1 == null)          
                 {
-                    CurrentEquippepItem = Armor.PlayerArmor(itemType);
-                    if (player.CheckItemType(CurrentEquippepItem))
+                    try
+                    {
+                        CurrentEquippepItem = Armor.PlayerArmor(itemType);
+                        if (player.CheckItemType(CurrentEquippepItem))
+                        {
+
+                            return item.Class2.SetArmorType(CurrentEquippepItem);
+                        }
+                        else
+                        {
+                            throw new InvalidArmorException(CurrentEquippepItem + " Cannot be worn by " + player.HeroClass);
+                        }
+                    }
+                    catch (Exception m)
                     {
 
-                       return item.Class2.SetArmorType(CurrentEquippepItem);
-                    }
-                    else
-                    {
+                        Console.WriteLine(m.Message);
                         return "";
                     }
+                   
 
                 }
             

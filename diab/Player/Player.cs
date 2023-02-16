@@ -6,9 +6,15 @@
     public class Player : Hero
     {
         public string PlayerName { get; set; }
+        public string HeroClass { get; set; }
         public int Str { get; set; }
         public int Dex { get; set; }
         public int Magic { get; set; }
+
+        private Armor? _head;
+        private Armor? _body;
+        private Armor? _legs;
+        private Weapon? _weapon;
         /// <summary>
         /// set name and stats based on class 
         /// </summary>
@@ -18,15 +24,67 @@
         public Player(string playerName, int level, HeroClass heroClass) : base(level, heroClass)
         {
             PlayerName = playerName;
+            HeroClass = heroClass.ClassName;
             Str = heroClass.Str;
             Dex = heroClass.Dex;
             Magic = heroClass.Magic; 
 
         }
-        public Weapon? Weapon { get; set; }
-        public Armor? Head { get; set; }
-        public Armor? Body { get; set; }
-        public Armor? Legs { get; set; }
+
+        /// <summary>
+        /// Guard for weapon thor error if false
+        /// </summary>
+        public Weapon? Weapon { get { return _weapon; } set
+            { 
+                if(CheckItemType(value.WeaponType) != true)
+                {
+                    throw new InvalidWeaponException($"This {value.WeaponType} cannot be worn by {HeroClass}");
+                }
+                _weapon = value;
+            } }
+        /// <summary>
+        /// Guard for armor thor error if false
+        /// </summary>
+        public Armor? Head
+        {
+            get { return _head; }
+            set
+            {
+                if (CheckItemType(value.ArmorType) != true)
+                {
+                    throw new InvalidArmorException($"This {value.ArmorType} cannot be worn by {HeroClass}");
+                }
+                _head = value;
+            }
+        }
+        /// <summary>
+        /// Guard for armor thor error if false
+        /// </summary>
+        public Armor? Body {
+            get { return _body; }
+            set
+            {
+                if (CheckItemType(value.ArmorType) != true)
+                {
+                    throw new InvalidArmorException($"This {value.ArmorType} cannot be worn by {HeroClass}");
+                }
+                _body = value;
+            }
+        }
+        /// <summary>
+        /// Guard for armor thor error if false
+        /// </summary>
+        public Armor? Legs {
+            get { return _legs; }
+            set
+            {
+                if (CheckItemType(value.ArmorType) != true)
+                {
+                    throw new InvalidArmorException($"This {value.ArmorType} cannot be worn by {HeroClass}");
+                }
+                _legs= value;
+            }
+        }
         /// <summary>
         /// Show player total stats
         /// </summary>
@@ -42,10 +100,10 @@
         public void Slots()
         {
             var gearSlots = new Dictionary<string, string>(){
-            {"Weapon", Weapon.damage! == 0 ? null! : $"{Weapon.Name} Damage: {Weapon.WeaponDamage}" },
-            { "Head", Head.Name! == null ? null! : $"{Head.Name} | Str:{Head.Str} | Dex: {Head.Dex} | Magic: {Head.Magic}"},
-             {"Body", Body.Name! == null ? null! : $"{Body.Name}| Str:{Body.Str} | Dex: {Body.Dex} | Magic: {Body.Magic}"},
-             {"Legs", Legs.Name! == null ? null! : $"{Legs.Name} | Str:{Legs.Str} | Dex: {Legs.Dex} | Magic: {Legs.Magic}"}
+            {"Weapon", _weapon.damage! == 0 ? null! : $"{_weapon.Name} Damage: {_weapon.WeaponDamage}" },
+            { "Head", _head.Name! == null ? null! : $"{_head.Name} | Str:{_head.Str} | Dex: {_head.Dex} | Magic: {_head.Magic}"},
+             {"Body", _body.Name! == null ? null! : $"{_body.Name}| Str:{_body.Str} | Dex: {_body.Dex} | Magic: {_body.Magic}"},
+             {"Legs", _legs.Name! == null ? null! : $"{_legs.Name} | Str:{_legs.Str} | Dex: {_legs.Dex} | Magic: {_legs.Magic}"}
             };
             foreach (var gearSlot in gearSlots)
             {

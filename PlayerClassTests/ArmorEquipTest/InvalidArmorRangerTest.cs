@@ -37,11 +37,43 @@ namespace PlayerClassTests.ArmorTest
                 Weapon = new(),
             };
 
-            Assert.Null(player.Class.GearRestrictions(plate.ArmorType));
-            Assert.NotNull(player.Class.GearRestrictions(mail.ArmorType));
-            Assert.NotNull(player.Class.GearRestrictions(leather.ArmorType));
-            Assert.Null(player.Class.GearRestrictions(cloth.ArmorType));
+            Assert.False(player.Class.GearRestrictions(plate.ArmorType));
+            Assert.True(player.Class.GearRestrictions(mail.ArmorType));
+            Assert.True(player.Class.GearRestrictions(leather.ArmorType));
+            Assert.False(player.Class.GearRestrictions(cloth.ArmorType));
+
+
+            Assert.False(player.CheckItemType(plate.ArmorType));
+            Assert.True(player.CheckItemType(mail.ArmorType));
+            Assert.True(player.CheckItemType(leather.ArmorType));
+            Assert.False(player.CheckItemType(cloth.ArmorType));
         }
-        #endregion
+
+
+        [Fact]
+
+        public void RangerClassCannotWearPlate_Cloth_ThrowException()
+        {
+            //Arrange
+            string name = "Tom";
+            HeroClass rangerClass = new RangerClass();
+            Armor plate = new() { Name = "test", Dex = 4, Magic = 0, Str = 10, RequiredLevel = 1 };
+            plate.SetArmorType("Plate");
+
+            //Act
+            Player player = new(name, 1, rangerClass)
+            {
+                Head = new(),
+                Body = new(),
+                Legs = new(),
+                Weapon = new(),
+            };
+
+            Assert.Throws<InvalidArmorException>(() => player.Head = plate);
+
+
+
+        }
     }
+    #endregion
 }

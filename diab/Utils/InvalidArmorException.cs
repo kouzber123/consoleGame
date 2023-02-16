@@ -2,14 +2,14 @@
 {
     public class InvalidArmorException : Exception
     {
-        readonly string Type;
-        readonly string ClassName;
-        public InvalidArmorException(string classname, string type) : base()
-        {
-            Type = type;
-            ClassName = classname;
-        }
+        
 
-        public override string Message => ClassName + " cannot equip armortype: " + Type;
+        public InvalidArmorException() : base( "Invalid armor type") { }
+        public InvalidArmorException(string message) : base(message)
+        {
+           
+        }
+        
+        public InvalidArmorException(string message, Exception innerException ) : base(message, innerException) { }
     }
 }

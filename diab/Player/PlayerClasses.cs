@@ -3,7 +3,7 @@
     /// <summary>
     /// PlayrClasses handles level and stats related functionalities
     /// </summary>
-    internal class PlayerClasses
+    public class PlayerClasses
     {
         private enum Classes
         {

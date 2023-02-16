@@ -7,47 +7,21 @@ using System.Threading.Tasks;
 
 namespace PlayerClassTests
 {
-    public class PlayerClassRogueTest
+    
+    public class PlayerClassWarriorTest
     {
- 
-            #region Creation
-            [Fact]
-            public void Initilize_PlayerWtithNameClassOfROGUELevelShouldCreatePlayerWithTheseStats()
-            {
-                //Arrange
-                string name = "Tom";
-                int level = 1;
-
-                HeroClass rogueClass = new RogueClass();
-                //Act
-
-                Player player = new(name, 1, rogueClass)
-                {
-                    Head = new(),
-                    Body = new(),
-                    Legs = new(),
-                    Weapon = new(),
-                };
-
-                //Assert
-                Assert.Equal(name, player.PlayerName);
-                Assert.Equal(level, player.Level);
-                Assert.Equal(rogueClass.Str, player.Str);
-                Assert.Equal(rogueClass.Dex, player.Dex);
-                Assert.Equal(rogueClass.Magic, player.Magic);
-
-
-            }
+        #region Creation
         [Fact]
-        public void TestDamageMethodShouldBeAtStartOneDamage()
+        public void Initilize_PlayerWtithNameClassOfWARRIORLevelShouldCreatePlayerWithTheseStats()
         {
             //Arrange
             string name = "Tom";
-
-            HeroClass rogueClass = new RogueClass();
-
+            int level = 1;
+     
+            HeroClass warriorClass = new WarriorClass();
             //Act
-            Player player = new(name, 1, rogueClass)
+      
+            Player player = new(name, 1, warriorClass)
             {
                 Head = new(),
                 Body = new(),
@@ -55,15 +29,46 @@ namespace PlayerClassTests
                 Weapon = new(),
             };
 
-            Assert.Equal(1, player.Damage(player));
-            Assert.Equal(1, player.Class.Damage(player));
+        
+            //Assert
+            Assert.Equal(name, player.PlayerName);
+            Assert.Equal(level, player.Level);
+            Assert.Equal(warriorClass.Str, player.Str);
+            Assert.Equal(warriorClass.Dex, player.Dex);
+            Assert.Equal(warriorClass.Magic, player.Magic);
+
+
+
+        }
+
+    
+    [Fact]
+    public void TestDamageMethodShouldBeAtStartOneDamage()
+    {
+        //Arrange
+        string name = "Tom";
+
+        HeroClass warriorClass = new WarriorClass();
+
+        //Act
+        Player player = new(name, 1, warriorClass)
+        {
+            Head = new(),
+            Body = new(),
+            Legs = new(),
+            Weapon = new(),
+        };
+
+
+        Assert.Equal(1, player.Damage(player));
+        Assert.Equal(1, player.Class.Damage(player));
         }
         [Fact]
         public void TestGetTotalAttributesFromLevelingStatsAndItemStats_ShouldSumStatsThatIsOnlyPlayerStats_GearIsEmptyNow()
         {
             string name = "Tom";
             int sum;
-            HeroClass playerClass = new RogueClass();
+            HeroClass playerClass = new WarriorClass();
 
             //Act
             Player player = new(name, 1, playerClass)
@@ -77,7 +82,6 @@ namespace PlayerClassTests
 
             Assert.Equal(sum, player.Class.TotalAttributes(player));
         }
-
         [Fact]
         public void TestGetSingleAttributeFromLevelingAttributeAndSingularItemAttribute_ShouldSumSelectedAttribute()
         {
@@ -85,7 +89,7 @@ namespace PlayerClassTests
             int sumStr;
             int sumDex;
             int sumMagic;
-            HeroClass mageClass = new RogueClass();
+            HeroClass mageClass = new WarriorClass();
 
             //Act
             Player player = new(name, 1, mageClass)
@@ -110,7 +114,7 @@ namespace PlayerClassTests
             int sumStr;
             int sumDex;
             int sumMagic;
-            HeroClass playerClass = new RogueClass();
+            HeroClass playerClass = new WarriorClass();
 
             //Act
             Player player = new(name, 1, playerClass)
@@ -120,12 +124,12 @@ namespace PlayerClassTests
                 Legs = new(),
                 Weapon = new(),
             };
-            sumStr = player.Str + 1 + player.Dex + 4 + player.Magic + 1;
+            sumStr = player.Str + 3 + player.Dex + 2 + player.Magic + 1;
 
             player.Class.LevelUp(player);
             Assert.Equal(sumStr, player.TotalStats());
+       
         }
-
         #endregion
 
 

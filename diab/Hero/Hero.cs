@@ -28,9 +28,9 @@
         
         public bool CheckItemType(string item)
         {
-          string IsRestricted = Class.GearRestrictions(item);
+           bool IsRestricted = Class.GearRestrictions(item);
           
-            if(IsRestricted != null)
+            if(IsRestricted)
             {
                 return true;
             }
