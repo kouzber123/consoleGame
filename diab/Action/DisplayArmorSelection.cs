@@ -12,7 +12,7 @@
         public static string DisplayArmorList(string ArmorType, Player player)
         {
             string? gear1="", gear2="", gear3 = "";
-            int lvlreq1=0, lvlreq2=0, lvlreq3 = 0, chosenItem = 0, slot = 0;
+            int lvlreq1 = 0, lvlreq2 = 0, lvlreq3 = 0, chosenItem = 0, slot = 0;
             int choise;
             Armor armor1;
             Armor armor2;

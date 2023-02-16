@@ -42,10 +42,10 @@
         public void Slots()
         {
             var gearSlots = new Dictionary<string, string>(){
-            {"Weapon", Weapon! == null ? null! : $"{Weapon.Name} Damage: {Weapon.WeaponDamage}" },
-            { "Head", Head! == null ? null! : $"{Head.Name} | Str:{Head.Str}| Dex: {Head.Dex} | Magic: {Head.Magic}"},
-             {"Body", Body! == null ? null! :  $"{Body.Name}| Str:{Body.Str}| Dex: {Body.Dex} | Magic: {Body.Magic}"},
-             {"Legs", Legs! == null ? null! : $"{Legs.Name} | Str:{Legs.Str}| Dex: {Legs.Dex} | Magic: {Legs.Magic}"}
+            {"Weapon", Weapon.damage! == 0 ? null! : $"{Weapon.Name} Damage: {Weapon.WeaponDamage}" },
+            { "Head", Head.Name! == null ? null! : $"{Head.Name} | Str:{Head.Str} | Dex: {Head.Dex} | Magic: {Head.Magic}"},
+             {"Body", Body.Name! == null ? null! : $"{Body.Name}| Str:{Body.Str} | Dex: {Body.Dex} | Magic: {Body.Magic}"},
+             {"Legs", Legs.Name! == null ? null! : $"{Legs.Name} | Str:{Legs.Str} | Dex: {Legs.Dex} | Magic: {Legs.Magic}"}
             };
             foreach (var gearSlot in gearSlots)
             {

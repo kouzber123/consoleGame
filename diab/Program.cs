@@ -12,7 +12,13 @@
 
 
 
-            Player? player = new(SelectionScreen.PlayerGivenName(), 1, ChoosePlayerClass.ChooseClass());
+            Player? player = new(SelectionScreen.PlayerGivenName(), 1, ChoosePlayerClass.ChooseClass())
+            {
+                Head = new(),
+                Body = new(),
+                Legs = new(),
+                Weapon = new(),
+            };
 
             HandleUserAction.HandleUserActions(player);
 

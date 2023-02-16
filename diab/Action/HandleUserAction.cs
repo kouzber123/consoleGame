@@ -159,8 +159,8 @@ namespace diab
                     if (userSelectedAction == 4)
                     {
                         Console.Clear();
-                        Console.WriteLine("Your total stats from levels and gear: ");
-                        Console.WriteLine(player.Class.TotalAttributes(player));
+                        Console.WriteLine("Your total stats from levels and gear: "+ player.Class.TotalAttributes(player));               
+                        Console.WriteLine("------------------------------");
                     }
                     if (userSelectedAction == 5)
                     {
