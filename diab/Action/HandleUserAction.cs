@@ -81,7 +81,7 @@ namespace diab
                                         }
                                         else
                                         {
-                                            Console.WriteLine(player.Class.ClassName+" cannot use this type of weapon: " + Weapon.PlayerWeapon(selectedWeaponType));
+                                            throw new InvalidWeaponException(player.Class.ClassName,Weapon.PlayerWeapon(selectedWeaponType));
                                         }
                                        
                                     }
@@ -115,9 +115,7 @@ namespace diab
                                             string name = PlayerItemList.DisplayArmors(playerSelectedGear, player); //create head, body, legs
                                             Console.WriteLine("-------");
                                             Console.WriteLine("name "+name);
-                                            Console.WriteLine("selected gear "+playerSelectedGear);
-
-                          
+                                            Console.WriteLine("selected gear "+playerSelectedGear);                       
                                             if(name != null)
                                             {
 
@@ -133,14 +131,15 @@ namespace diab
                                      }
                                         else
                                         {
-                                            Console.WriteLine(player.Class.ClassName+ " Cannot wear that type of armor " + Armor.PlayerArmor(selectedArmorType));
+                                            throw new InvalidArmorException(player.Class.ClassName, Armor.PlayerArmor(selectedArmorType));
+                                            
                                         }
                                   
                                     }
-                                    catch (ArgumentNullException)
+                                    catch (InvalidArmorException m)
                                     {
 
-                                        Console.WriteLine("Null exception");
+                                        Console.WriteLine(m.Message);
                                     }
                                  
                                 }               
@@ -159,7 +158,8 @@ namespace diab
                     if (userSelectedAction == 4)
                     {
                         Console.Clear();
-                        Console.WriteLine("Your total stats from levels and gear: "+ player.Class.TotalAttributes(player));               
+                        Console.WriteLine("Your total stats from levels and gear: "+  player.Class.TotalAttributes(player));
+                        Console.Write(player.Class.TotalAttributes(player));
                         Console.WriteLine("------------------------------");
                     }
                     if (userSelectedAction == 5)

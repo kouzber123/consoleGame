@@ -101,25 +101,30 @@
             weapons2 = new() { Name = weapon2, RequiredLevel = lvlreq2, damage = RandomGenerator.RandomStat() };
             weapons3 = new() { Name = weapon3, RequiredLevel = lvlreq3, damage = RandomGenerator.RandomStat() };
 
-            if (chosenItem == 1 && weapons1.RequiredLevel <= player.Level)
-            {
-            
-               player.Weapon = weapons1 ;
-               return weapons1.Name;
+          
 
-            }
-            if(chosenItem == 2 && weapons2.RequiredLevel <= player.Level)
-            {
+                if (chosenItem == 1 && weapons1.RequiredLevel <= player.Level)
+                {
 
-               player.Weapon = weapons2;
-               return weapons2.Name;
+                    player.Weapon = weapons1;
+                    return weapons1.Name;
 
-            }
-            if (chosenItem == 2 && weapons3.RequiredLevel <= player.Level)
-            {
-                player.Weapon = weapons3;
-                return weapons3.Name;
-            }
+                }
+                if (chosenItem == 2 && weapons2.RequiredLevel <= player.Level)
+                {
+
+                    player.Weapon = weapons2;
+                    return weapons2.Name;
+
+                }
+                if (chosenItem == 2 && weapons3.RequiredLevel <= player.Level)
+                {
+                    player.Weapon = weapons3;
+                    return weapons3.Name;
+                }
+ 
+        
+         
             return null;
           
             
