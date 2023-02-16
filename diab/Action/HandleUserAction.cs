@@ -1,6 +1,4 @@
-﻿using static diab.CheckItemType;
-
-namespace diab
+﻿namespace diab
 { 
 
     internal class HandleUserAction
@@ -59,7 +57,7 @@ namespace diab
 
                                     selectedWeaponType = ItemShopsCatalogue.ShowWeaponsCatalogue();
                                   
-                                    playerSelectedGear = IsCorrectGearType(selectedWeaponType,new OptionalClassParams { Class1 = weapon, Class2= null! }, player);
+                                    playerSelectedGear = CheckItemType.IsCorrectGearType(selectedWeaponType,new OptionalClassParams { Class1 = weapon, Class2= null! }, player);
                                     try
                                     {
                                         
@@ -100,14 +98,11 @@ namespace diab
                                 int selectedArmorType;
                                
                                 while (true)
-                                {
-                                
+                                {                             
                                     selectedArmorType = ItemShopsCatalogue.ShowArmorsCatalogue();
-
-                                    playerSelectedGear = IsCorrectGearType(selectedArmorType, new OptionalClassParams { Class1 = null!, Class2 = armor }, player);
+                                    playerSelectedGear = CheckItemType.IsCorrectGearType(selectedArmorType, new OptionalClassParams { Class1 = null!, Class2 = armor }, player);
                                     try
-                                    {
-                                       
+                                    {                                    
                                         if (playerSelectedGear != "")
                                     {
                                          
@@ -125,10 +120,10 @@ namespace diab
                                             }
                                             else
                                             {
-                                                Console.WriteLine("Level is too low required level: " + name);
-
+                                                Console.WriteLine("Level is too low for item ");
                                             }
-                                     }
+                                            
+                                        }
                                         else
                                         {
                                             throw new InvalidArmorException(player.Class.ClassName, Armor.PlayerArmor(selectedArmorType));
@@ -152,15 +147,13 @@ namespace diab
                         Console.Clear();
                         int damage = player.Damage(player);
                         Console.WriteLine("Total damage : " + damage);
-                        
-
+                        Console.WriteLine();
                     }
                     if (userSelectedAction == 4)
                     {
                         Console.Clear();
                         Console.WriteLine("Your total stats from levels and gear: "+  player.Class.TotalAttributes(player));
-                        Console.Write(player.Class.TotalAttributes(player));
-                        Console.WriteLine("------------------------------");
+                        Console.WriteLine();
                     }
                     if (userSelectedAction == 5)
                     {
