@@ -1,8 +1,6 @@
-﻿using System.Collections.Immutable;
-
-namespace diab
+﻿namespace diab
 {
-    internal class MageClass : HeroClass
+    public class MageClass : HeroClass
     {
         public override string ClassName => "Mage";
         public override int Str => 1;

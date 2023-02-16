@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace diab
 {
-    internal class RangerClass : HeroClass
+    public class RangerClass : HeroClass
     {
         public override string ClassName => "Ranger";
         public override int Str => 1;

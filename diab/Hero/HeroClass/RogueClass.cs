@@ -1,6 +1,6 @@
 ﻿namespace diab
 {
-    internal class RogueClass: HeroClass
+    public class RogueClass: HeroClass
     {
         public override string ClassName => "Rogue";
         public override int Str => 2;
