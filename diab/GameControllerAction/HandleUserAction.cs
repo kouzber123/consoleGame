@@ -38,45 +38,44 @@
                             Console.Clear();
                             player.LevelUp(player);
                             Console.WriteLine("Level up! " + player.Level);
-                            
-                            Console.WriteLine(player.CheckItemType("Sword"));
                         }
                         if (userSelectedAction == 2)
                         {
                             //Equip a gear > choose gear option > weapon or armor > inventory
                             int choose = SelectWeaponOrArmor.SelectWeaponOrArmors();
-                            string playerSelectedGear;
+                            string playerSelectedGear = string.Empty;
                             if (choose == 1) //refactor later to differenct file
-                            {
-
-           
-                               
+                            {  
                                 int selectedWeaponType;
                                 while (true)
                                 {
 
-                                    selectedWeaponType = ItemShopsCatalogue.ShowWeaponsCatalogue();                                
-                                    playerSelectedGear = CheckItemType.IsCorrectGearType(selectedWeaponType,new OptionalClassParams { Class1 = weapon, Class2= null! }, player);
+                                    selectedWeaponType = ItemShopsCatalogue.ShowWeaponsCatalogue();
+                                    string weaponType = Weapon.PlayerWeapon(selectedWeaponType);                                
                                     try
                                     {
                                         
-                                        if (playerSelectedGear != "")
+                                        if (!player.Class.GearRestrictions(weaponType))
                                         {
                                         
-                                            Console.WriteLine("Selected: " + playerSelectedGear);
-                                            string selectedweapon = PlayerItemList.DisplayWeapons(playerSelectedGear, weapon, player);
+                                           throw new InvalidWeaponException(weaponType + "Cannot be worn by " + player.HeroClass);
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Selected: " + weaponType);
+                                            string selectedweapon = PlayerItemList.DisplayWeapons(weaponType, weapon, player);
                                             Console.WriteLine(selectedweapon);
-                                            if(selectedweapon != null)
+                                            if (selectedweapon != null)
                                             {
-                                                SelectionScreen.ShowAcquiredItem(player.Weapon.Name, player.Weapon.WeaponType); // change
+                                                SelectionScreen.ShowAcquiredItem(player.Weapon?.Name!, player.Weapon?.WeaponTypes!); // change
                                                 Console.ReadKey();
                                                 break;
                                             }
                                             else
                                             {
-                                                Console.WriteLine("Selected: " + playerSelectedGear + " is too high level for you, level required" + weapon.RequiredLevel);
+                                                Console.WriteLine("Selected: weapon is too high level for you, level required");
                                             }
-                                        }                                                        
+                                        }
                                     }
                                     catch (InvalidWeaponException m)
                                     {
@@ -93,22 +92,28 @@
                                
                                 while (true)
                                 {                             
-                                    selectedArmorType = ItemShopsCatalogue.ShowArmorsCatalogue();
-                                    playerSelectedGear = CheckItemType.IsCorrectGearType(selectedArmorType, new OptionalClassParams { Class1 = null!, Class2 = armor }, player);
+                                    selectedArmorType = ItemShopsCatalogue.ShowArmorsTypeCatalogue(); // return 
+                                    string armorType = Armor.PlayerArmor(selectedArmorType);
+                                   
                                     try
                                     {                                    
-                                        if (playerSelectedGear != "")
+                                        if (!player.Class.GearRestrictions(armorType))
                                     {
-                                         
-                                            Console.WriteLine("Selected: " + playerSelectedGear);
-                                            string name = PlayerItemList.DisplayArmors(playerSelectedGear, player); //create head, body, legs
+
+                                            throw new InvalidArmorException(armorType + " cannot be worn by " + player.HeroClass);                                                                                 
+                                        }
+                                        else 
+                                        {
+
+                                            Console.WriteLine("Selected: " + armorType );
+                                            string name = PlayerItemList.DisplayArmors(armorType, player); //create head, body, legs
                                             Console.WriteLine("-------");
-                                            Console.WriteLine("name "+name);
-                                            Console.WriteLine("selected gear "+playerSelectedGear);                       
-                                            if(name != null)
+                                            Console.WriteLine("name " + name);
+                                            Console.WriteLine("selected gear " +  armor.ArmorType);
+                                            if (name != null)
                                             {
 
-                                                SelectionScreen.ShowAcquiredItem(name, armor.ArmorType!); //change
+                                                SelectionScreen.ShowAcquiredItem(name, armorType); //change
                                                 Console.ReadKey();
                                                 break;
                                             }
@@ -116,7 +121,6 @@
                                             {
                                                 Console.WriteLine("Level is too low for item ");
                                             }
-                                            
                                         }
                                   
                                     }

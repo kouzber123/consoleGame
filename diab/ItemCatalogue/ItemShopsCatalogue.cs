@@ -44,7 +44,7 @@
         /// Loop enum and show data of armors types return user input
         /// </summary>
         /// <returns></returns>
-        public static int ShowArmorsCatalogue()
+        public static int ShowArmorsTypeCatalogue()
         {
             int armorsInInventory = 1;
             while (true)

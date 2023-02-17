@@ -6,39 +6,98 @@ namespace PlayerClassTests
     {
         #region
         [Fact]
-        public void TestIsGivenItemTypeCorrectForThePlayerClassShouldAcceptBothArmorAndWeaponClassesAndReturnEmptyStringOrNotNULL()
+        public void TestIsGivenItemTypeCorrectForThePlayerClassMage_ShouldAcceptBothArmorAndWeaponClassesAndReturnTrueOrFalse()
         {
             string name = "Tom";
-            string currentlyEquppedItem;
-            int itemType = 1; 
             HeroClass playerClass = new MageClass();
 
             //Act
-            Player player = new(name, 1, playerClass)
-            {
-                Head = new(),
-                Body = new(),
-                Legs = new(),
-                Weapon = new(),
-            };
-
+            Player player = new(name, 1, playerClass);
  
-            Weapon weaponStaffTest = new() { damage = 100, RequiredLevel = 1};
-            weaponStaffTest.SetWeaponType("Staff");
+            Weapon weaponStaffTest = new() { damage = 100, RequiredLevel = 1, WeaponTypes=WeaponType.Staff.ToString()};
+            Weapon weaponSwordTest = new() { damage = 100, RequiredLevel = 1, WeaponTypes = WeaponType.Sword.ToString() };
+            Armor armor = new() { RequiredLevel = 1, ArmorType =Armor.Armors.Cloth.ToString()};
+    
+           bool result = player.Class.GearRestrictions(armor.ArmorType);
+           Assert.True(result);
 
-            Weapon weaponSwordTest = new() { damage = 100, RequiredLevel = 1 };
-            weaponSwordTest.SetWeaponType("Staff");
+           result = player.Class.GearRestrictions(weaponStaffTest.WeaponTypes);
+           Assert.True(result);
 
-           Armor armor = new Armor() { RequiredLevel = 1};
-           armor.SetArmorType("Cloth");
-           string result = CheckItemType.IsCorrectGearType(itemType, new OptionalClassParams { Class1 = weaponStaffTest!, Class2 = null } , player);
-           Assert.NotNull(result);
+           result = player.Class.GearRestrictions(weaponSwordTest.WeaponTypes);
+           Assert.False(result);
 
-           result = CheckItemType.IsCorrectGearType(itemType, new OptionalClassParams { Class1 = weaponSwordTest!, Class2 = null }, player);
-           Assert.Equal("",result);
+        }
 
-           result = CheckItemType.IsCorrectGearType(itemType, new OptionalClassParams { Class1 = null!, Class2 = armor }, player);
-           Assert.NotNull(result);
+        [Fact]
+        public void TestIsGivenItemTypeCorrectForThePlayerClassWarrior_ShouldAcceptBothArmorAndWeaponClassesAndReturnTrueOrFalse()
+        {
+            string name = "Tom";
+            HeroClass playerClass = new WarriorClass();
+
+            //Act
+            Player player = new(name, 1, playerClass);
+
+            Weapon weaponStaffTest = new() { damage = 100, RequiredLevel = 1, WeaponTypes = WeaponType.Staff.ToString() };
+            Weapon weaponSwordTest = new() { damage = 100, RequiredLevel = 1, WeaponTypes = WeaponType.Sword.ToString() };
+            Armor armor = new() { RequiredLevel = 1, ArmorType = Armor.Armors.Cloth.ToString() };
+
+            bool result = player.Class.GearRestrictions(armor.ArmorType);
+            Assert.False(result);
+
+            result = player.Class.GearRestrictions(weaponStaffTest.WeaponTypes);
+            Assert.False(result);
+
+            result = player.Class.GearRestrictions(weaponSwordTest.WeaponTypes);
+            Assert.True(result);
+
+        }
+        [Fact]
+        public void TestIsGivenItemTypeCorrectForThePlayerClassRogue_ShouldAcceptBothArmorAndWeaponClassesAndReturnTrueOrFalse()
+        {
+            string name = "Tom";
+            HeroClass playerClass = new RogueClass();
+
+            //Act
+            Player player = new(name, 1, playerClass);
+      
+
+            Weapon weaponStaffTest = new() { damage = 100, RequiredLevel = 1, WeaponTypes = WeaponType.Staff.ToString() };
+            Weapon weaponDaggerTest = new() { damage = 100, RequiredLevel = 1, WeaponTypes = WeaponType.Dagger.ToString() };
+            Armor armor = new() { RequiredLevel = 1, ArmorType = Armor.Armors.Cloth.ToString() };
+
+            bool result = player.Class.GearRestrictions(armor.ArmorType);
+            Assert.False(result);
+
+            result = player.Class.GearRestrictions(weaponStaffTest.WeaponTypes);
+            Assert.False(result);
+
+            result = player.Class.GearRestrictions(weaponDaggerTest.WeaponTypes);
+            Assert.True(result);
+
+        }
+        [Fact]
+        public void TestIsGivenItemTypeCorrectForThePlayerClassRanger_ShouldAcceptBothArmorAndWeaponClassesAndReturnTrueOrFalse()
+        {
+            string name = "Tom";
+            HeroClass playerClass = new RangerClass();
+
+            //Act
+            Player player = new(name, 1, playerClass);
+
+
+            Weapon weaponStaffTest = new() { damage = 100, RequiredLevel = 1, WeaponTypes = WeaponType.Staff.ToString() };
+            Weapon weaponBowTest = new() { damage = 100, RequiredLevel = 1, WeaponTypes = WeaponType.Bow.ToString() };
+            Armor armor = new() { RequiredLevel = 1, ArmorType = Armor.Armors.Mail.ToString() };
+
+            bool result = player.Class.GearRestrictions(armor.ArmorType);
+            Assert.True(result);
+
+            result = player.Class.GearRestrictions(weaponStaffTest.WeaponTypes);
+            Assert.False(result);
+
+            result = player.Class.GearRestrictions(weaponBowTest.WeaponTypes);
+            Assert.True(result);
 
         }
         [Fact]

@@ -21,8 +21,7 @@ namespace PlayerClassTests.ArmorTest
             int dex = 15;
             int magic = 20;
             //ACT
-            Armor armor= new() { Name = name, RequiredLevel = requiredLevel, Str = str, Dex = dex, Magic = magic};
-            armor.SetArmorType(armorType);
+            Armor armor= new() { Name = name, RequiredLevel = requiredLevel, Str = str, Dex = dex, Magic = magic, ArmorType = armorType};         
 
             //Assert
             Assert.Equal(name, armor.Name);

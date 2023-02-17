@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace diab
 {
+    /// <summary>
+    /// stats for armor
+    /// </summary>
     public abstract class ArmorAttributeClass
     {
         public abstract int Str { get; }

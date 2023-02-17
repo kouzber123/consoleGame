@@ -20,17 +20,10 @@ namespace PlayerClassTests.ArmorTest
             int dex = 7;
             int magic = 1;
             HeroClass playerClass = new RogueClass();
-            Armor plate = new() { Name = "test", Dex = 4, Magic = 0, Str = 10, RequiredLevel = 1 };
-            plate.SetArmorType("Plate");
-
-            Armor mail = new() { Name = "test", Dex = 4, Magic = 0, Str = 10, RequiredLevel = 1 };
-            mail.SetArmorType("Mail");
-
-            Armor leather = new() { Name = "test", Dex = 4, Magic = 0, Str = 10, RequiredLevel = 1 };
-            leather.SetArmorType("Leather");
-
-            Armor cloth = new() { Name = "test", Dex = 4, Magic = 0, Str = 10, RequiredLevel = 1 };
-            cloth.SetArmorType("Cloth");
+            Armor plate = new() { Name = "test", Dex = 4, Magic = 0, Str = 10, RequiredLevel = 1, ArmorType = Armor.Armors.Plate.ToString() };
+            Armor mail = new() { Name = "test", Dex = 4, Magic = 0, Str = 10, RequiredLevel = 1, ArmorType = Armor.Armors.Mail.ToString() };
+            Armor leather = new() { Name = "test", Dex = 4, Magic = 0, Str = 10, RequiredLevel = 1, ArmorType = Armor.Armors.Leather.ToString() };
+            Armor cloth = new() { Name = "test", Dex = 4, Magic = 0, Str = 10, RequiredLevel = 1, ArmorType = Armor.Armors.Cloth.ToString() };
             //Act
             Player player = new(name, 1, playerClass)
             {
@@ -59,8 +52,7 @@ namespace PlayerClassTests.ArmorTest
             //Arrange
             string name = "Tom";
             HeroClass rogueClass = new RogueClass();
-            Armor plate = new() { Name = "test", Dex = 4, Magic = 0, Str = 10, RequiredLevel = 1 };
-            plate.SetArmorType("Plate");
+            Armor cloth = new() { Name = "test", Dex = 4, Magic = 0, Str = 10, RequiredLevel = 1, ArmorType = Armor.Armors.Cloth.ToString() };
 
             //Act
             Player player = new(name, 1, rogueClass)
@@ -71,7 +63,7 @@ namespace PlayerClassTests.ArmorTest
                 Weapon = new(),
             };
 
-            Assert.Throws<InvalidArmorException>(() => player.Legs = plate);
+            Assert.Throws<InvalidArmorException>(() => player.Legs = cloth);
 
 
 

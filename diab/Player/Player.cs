@@ -36,9 +36,9 @@
         /// </summary>
         public Weapon? Weapon { get { return _weapon; } set
             { 
-                if(CheckItemType(value.WeaponType) != true)
+                if(CheckItemType(value.WeaponTypes) != true)
                 {
-                    throw new InvalidWeaponException($"This {value.WeaponType} cannot be worn by {HeroClass}");
+                    throw new InvalidWeaponException($"This {value.WeaponTypes} cannot be worn by {HeroClass}");
                 }
                 _weapon = value;
             } }

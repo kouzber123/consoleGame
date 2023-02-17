@@ -13,14 +13,14 @@ namespace diab
     {
 
         /// <summary>
-        /// Displays user status
+        /// Displays user status, name, class, stats, level, attributes
         /// </summary>
         public static void ShowInformation(Player player)
         {
+            //StringBuilder 
             
             Console.Clear();
             Console.WriteLine("Hero Current Status");
-            player.TotalStats();
             Console.WriteLine("-----------------------------------------");
             Console.WriteLine("PLAYER STATUS:");
             Console.WriteLine("Class: " + player.Class.ClassName);
@@ -30,9 +30,9 @@ namespace diab
                 player.Class.TotalAttribute(player.Str, Armor.TotalAttribute(player, 1)),
                 player.Class.TotalAttribute(player.Dex, Armor.TotalAttribute(player, 2)),
                 player.Class.TotalAttribute(player.Magic, Armor.TotalAttribute(player, 3))
+               
                );
-             
-            Console.WriteLine("Total level attributes: {0}", player.TotalStats());
+            Console.WriteLine("Damage: "+ player.Damage(player));
             Console.WriteLine("-----------------------------------------");
             Console.WriteLine("INVENTORY:");
             player.Slots();

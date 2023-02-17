@@ -112,8 +112,7 @@ namespace PlayerClassTests
         {
             string name = "Tom";
             int sumStr;
-            int sumDex;
-            int sumMagic;
+
             HeroClass playerClass = new RangerClass();
 
             //Act

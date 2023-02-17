@@ -20,9 +20,9 @@
             }     
         }
 
-        /*
-         RETURNS VALUE FOR USER
-         */
+       /// <summary>
+       /// Starting screen
+       /// </summary>
         public static void ChooseHero()
         {
             Console.WriteLine("Choose a class: ");
@@ -33,9 +33,10 @@
           
         }
 
-        /*
-         * ACTION UI TO SHOW WHAT USER CAN DO
-         */
+        /// <summary>
+        /// Action controoler list
+        /// </summary>
+        /// <returns></returns>
         public static string? ActionList()
         {
             Console.WriteLine("Please select an action");
@@ -49,7 +50,11 @@
             return Console.ReadLine();
         }
 
-
+        /// <summary>
+        /// show when player equips a gear
+        /// </summary>
+        /// <param name="itemName"></param>
+        /// <param name="gear"></param>
         public static void ShowAcquiredItem( string itemName,  string gear)
         {
             Console.WriteLine("YOU HAVE ACQUIRED A NEW Item {0}", itemName);

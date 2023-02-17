@@ -1,8 +1,12 @@
 ﻿namespace diab
 {
+
+    /// <summary>
+    /// Armor class handles armor related props and methods
+    /// </summary>
     public class Armor : Item
     {
-        //THIS IS ARMOR PLACE
+        
         private string? armorType = null;
 
         private int str = 0;
@@ -12,7 +16,7 @@
         public int Dex { get => dex; set => dex = value; }
         public int Magic { get => magic; set => magic = value; }
 
-        public string? ArmorType { get => armorType;  }
+        public string? ArmorType { get => armorType; set => armorType = value; }
 
        
         public enum Armors
@@ -23,11 +27,21 @@
             Plate = 4,
         }
 
+        /// <summary>
+        /// Return all stats combined
+        /// </summary>
+        /// <returns></returns>
         public int TotalAttributes()
         {
             return  Str + Dex + Magic;
         }
 
+        /// <summary>
+        /// return combined individual stats depending on argument value 
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="num"></param>
+        /// <returns></returns>
         public static int TotalAttribute(Player player, int num)
         {
             if(player.Head != null && player.Body != null && player.Legs != null)
@@ -51,17 +65,6 @@
             return 0;
           
             
-        }
-
-        /// <summary>
-        /// Set armor type
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public string SetArmorType(string type)
-        {
-           
-            return armorType = type;
         }
 
         /// <summary>

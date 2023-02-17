@@ -7,12 +7,11 @@
     {
 
         /// <summary>
-        /// Player class gets the selecte armor or weapon class stats 
-        /// Conditionals sets the correct slot without overwriting inventory
+        /// This methods places the item to the correct slot
         /// </summary>
         /// <param name="gear"></param>
         /// <param name="player"></param>
-        /// <param name="item"></param>
+        /// <param name="armor"></param>
         /// <returns></returns>
         public static string EquipGear(int gear, Player player, Armor armor)
         {

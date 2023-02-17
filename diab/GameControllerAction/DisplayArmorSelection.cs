@@ -3,7 +3,7 @@
     public class DisplayArmorSelection
     {
         /// <summary>
-        /// Shows the options of the armor this function handles changing user gear this is repetive code
+        /// Shows the options of the armor this function handles changing user the wanted gear
         /// </summary>
         /// <param name="ArmorType"></param>
         /// <param name="armor"></param>
@@ -11,22 +11,23 @@
         /// <returns></returns>
         public static string DisplayArmorList(string ArmorType, Player player)
         {
-            string? gear1="", gear2="", gear3 = "";
+            string? gear1 = "", gear2 = "", gear3 = "", type ="" ;
             int lvlreq1 = 0, lvlreq2 = 0, lvlreq3 = 0, chosenItem = 0, slot = 0;
             int choise;
             Armor armor1;
             Armor armor2;
             Armor armor3;
-            if (ArmorType == "Cloth")
+            if (ArmorType == Armor.Armors.Cloth.ToString())
             {
                 Console.Clear();
                 choise = ShowGearSlotsOptions.ShowGearSlotOption();
-
+                type = Armor.Armors.Cloth.ToString();
                 if (choise == 1)
                 {
                     gear1 = "wool hat"; lvlreq1 = 1;    
                     gear2 = "Wizard hat"; lvlreq2 = 10; 
-                    gear3 = "Arch wizard"; lvlreq3 = 20;    
+                    gear3 = "Arch wizard"; lvlreq3 = 20;
+                    
                     ShowShopItems.ShowShopItem(gear1, lvlreq1);
                     ShowShopItems.ShowShopItem(gear2, lvlreq2);
                     ShowShopItems.ShowShopItem(gear3, lvlreq3);
@@ -40,6 +41,7 @@
                     gear1 = "wool shirt"; lvlreq1 = 1;  
                     gear2 = "Rune Cloth robe"; lvlreq2 = 10;    
                     gear3 = "Ultamage shirt"; lvlreq3 = 20; ;
+                 
                     ShowShopItems.ShowShopItem(gear1, lvlreq1);
                     ShowShopItems.ShowShopItem(gear2, lvlreq2);
                     ShowShopItems.ShowShopItem(gear3, lvlreq3);
@@ -60,10 +62,11 @@
                 }
             }
                
-                if (ArmorType == "Leather") {
+                if (ArmorType == Armor.Armors.Leather.ToString()) {
                     Console.Clear();
                     choise = ShowGearSlotsOptions.ShowGearSlotOption();
-                    if (choise == 1)
+                    type = Armor.Armors.Leather.ToString();
+                if (choise == 1)
                     {
                         gear1 = "leather Helmet"; lvlreq1 = 1; 
                         gear2 = "Thick hide helmet"; lvlreq2 = 10; 
@@ -101,12 +104,13 @@
     
                   
                 }
-                if (ArmorType == "Mail")
+                if (ArmorType == Armor.Armors.Mail.ToString())
                 {
                     Console.Clear();
                     choise = ShowGearSlotsOptions.ShowGearSlotOption();
+                    type = Armor.Armors.Mail.ToString();
 
-                    if (choise == 1)
+                if (choise == 1)
                     {
                         gear1 = "iron helmet"; lvlreq1 = 1;                   
                         gear2 = "steel cuffed helmet"; lvlreq2 = 10;    
@@ -143,12 +147,13 @@
                     };
                 
                 }
-                if (ArmorType == "Plate")
+                if (ArmorType == Armor.Armors.Plate.ToString())
                 {
                     Console.Clear();
                     choise = ShowGearSlotsOptions.ShowGearSlotOption();
+                    type = Armor.Armors.Plate.ToString();
 
-                    if (choise == 1)
+                if (choise == 1)
                     {
                         gear1 = "Plated helmet"; lvlreq1 = 1; 
                         gear2 = "heacy plate helmet"; lvlreq2 = 10; 
@@ -184,9 +189,9 @@
                 
          
                 }
-            armor1 = new() { Name = gear1, RequiredLevel = lvlreq1, Dex = RandomGenerator.RandomStat(), Magic = RandomGenerator.RandomStat(), Str = RandomGenerator.RandomStat() };
-            armor2 = new() { Name = gear2, RequiredLevel = lvlreq2, Dex = RandomGenerator.RandomStat(), Magic = RandomGenerator.RandomStat(), Str = RandomGenerator.RandomStat() };
-            armor3 = new() { Name = gear3, RequiredLevel = lvlreq3, Dex = RandomGenerator.RandomStat(), Magic = RandomGenerator.RandomStat(), Str = RandomGenerator.RandomStat() };
+            armor1 = new() { Name = gear1, RequiredLevel = lvlreq1, Dex = RandomGenerator.RandomStat(), Magic = RandomGenerator.RandomStat(), Str = RandomGenerator.RandomStat(), ArmorType = type };
+            armor2 = new() { Name = gear2, RequiredLevel = lvlreq2, Dex = RandomGenerator.RandomStat(), Magic = RandomGenerator.RandomStat(), Str = RandomGenerator.RandomStat(),  ArmorType = type };
+            armor3 = new() { Name = gear3, RequiredLevel = lvlreq3, Dex = RandomGenerator.RandomStat(), Magic = RandomGenerator.RandomStat(), Str = RandomGenerator.RandomStat(),  ArmorType = type };
             
             if (chosenItem == 1)
             {

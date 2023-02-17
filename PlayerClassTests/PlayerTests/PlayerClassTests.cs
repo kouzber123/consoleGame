@@ -12,6 +12,7 @@ namespace PlayerClassTests
         {
             string name = "Tom";
             int sum;
+            int level = 2;
             HeroClass playerClass = new MageClass();
 
             //Act
@@ -26,11 +27,11 @@ namespace PlayerClassTests
 
             player.LevelUp(player);
             Assert.Equal(sum, player.TotalStats());
-      
+            Assert.Equal(level, player.Level);
 
         }
         [Fact]
-        public void TestPlayerClassEnumSelectorShouldResultRString()
+        public void TestPlayerClassEnumSelectorShouldResultRStringOfCorrectClass()
         {
             string name = "Tom";
             string selectedPlayerClass = PlayerClasses.PlayerClass(1);
@@ -56,7 +57,6 @@ namespace PlayerClassTests
         {
             string name = "Tom";
             HeroClass playerClass = new MageClass();
-
             //Act
             Player player = new(name, 4, playerClass)
             {
@@ -67,7 +67,6 @@ namespace PlayerClassTests
             };
 
             Armor armor= new() { Name = "test", RequiredLevel = 5};
-            SetArmor.EquipGear(1, player, armor);
             Assert.Null(SetArmor.EquipGear(1, player, armor));       
         }
     }

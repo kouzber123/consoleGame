@@ -5,17 +5,13 @@
     /// </summary>
     public class ShowShopItems
         {
-        /*
-      TEMPLATE FOR SHOWING SHOP CONTENT
-      */
+
         public static void ShowShopItem(string name1, int lvl)
         {
-            Console.WriteLine($"Name: {name1}  lvl requirement: {lvl}, Wear to see the effect!");
+            Console.WriteLine($"Name: {name1}  lvl requirement: {lvl}");
 
         }
-        /*
-         * DISPLAY ITEMS PLAYER CAN CHOOSE FROM
-         * **/
+   
 
     }
 }

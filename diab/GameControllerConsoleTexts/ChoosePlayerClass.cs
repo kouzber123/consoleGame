@@ -9,6 +9,10 @@ namespace diab
 {
     internal class ChoosePlayerClass
     {
+        /// <summary>
+        /// This will give player a class 
+        /// </summary>
+        /// <returns></returns>
         public static HeroClass ChooseClass()
         {      
             while (true)
