@@ -68,7 +68,7 @@ Rogue can only equip following items Dagger, Swords, Mail and Leather
 Rogue Weapons - Daggers, Swords
 Rogue damage is based by total Dex
 
-Warrior
+4) Warrior
 Str 5, Dex 2, Magic 1
 Level up increases total stats by: Strength +3, Dexterity +2, Magic +1
 Warrior can only equip following items Hammer, Sword, Axe, Mail and Plate
