@@ -19,7 +19,19 @@ Are thrown when play decides to choose invalid item type for its current herocla
 
 Testing - 
 Tests have been conducted with xUnit Framework for the most important classes and method totaling 43ish. 
+E.g. Player -and Hero weapon .and armor classes but overall all classes were tested that had a fatal part in the game.
 All tests were successful.
+
+# Items
+Armor
+Hero can wear/fill 3 armor slot which are: 1) Head, 2) Body, and 3) Legs. 
+ArmorTypes are 1) Plate. 2) Mail. 3) Leather. and 4) Cloth
+Armors have level requirements and classtype requirements which player class has to fulfill order to use
+
+Weapon
+There are only equip one weapon at the time, weapons arent save. 
+Weapontypes are: 1) axe, 2) sword, 3) hammer, 4) dagger, 5) bow, 6) staff and 7) wand.
+Weapons have level requirements and classtype requirements which player class has to fulfill order to use
 
 # Hero/player Corner
 Hero's attributes
@@ -35,42 +47,32 @@ Hero damage = WeaponDamage * (1 + DamagingAttribute/100). weapons increase damag
 As mentioned each class starts with unique allocated stats and allowed equipments.
 
 All following classes starts with level one
+Str = Strength, Dex = Dexterity 
 1) Mage
-Strength 1, Dexterity 1, Intelligence 8.
-Level up increases total stats by: Strength +1, Dexterity +1, Intelligence +5.
+Str 1, Dex 1, Magic 8.
+Level up increases total stats by: Str +1, Dex +1, Magic +5.
 Mage can only equip following items Staff, Wand and Cloth
 Mage damage is based by total magic,
 
 2) Ranger
-Strength 1, Dexterity 7, Intelligence 1
-Level up increases total stats by: Strength +1, Dexterity +5, Intelligence +1
+Strength 1, Dexterity 7, Magic 1
+Level up increases total stats by: Str +1, Dex +5, Magic +1
 Ranger can only equip following items Bow, Mail and Leather
 Ranger damage is based by total Dex
 
 3) Rogue
-Strength 2, Dexterity 6, Intelligence 1
+Str 2, Dex 6, Magic 1
 Every time a Rogue levels up, they gain:
-Level up increases total stats by: Strength +1, Dexterity +4, Intelligence +1
+Level up increases total stats by: Str +1, Dex +4, Magic +1
 Rogue can only equip following items Dagger, Swords, Mail and Leather
 Rogue Weapons - Daggers, Swords
 Rogue damage is based by total Dex
 
 Warrior
-Strength 5, Dexterity 2, Intelligence 1
-Level up increases total stats by: Strength +3, Dexterity +2, Intelligence +1
+Str 5, Dex 2, Magic 1
+Level up increases total stats by: Strength +3, Dexterity +2, Magic +1
 Warrior can only equip following items Hammer, Sword, Axe, Mail and Plate
 Warrior damage is based by total strength
-
-Armors
-Hero can wear/fill 3 armor slot which are: 1) Head, 2) Body, and 3) Legs. 
-Armors have level requirements and classtype requirements which player class has to fulfill order to use
-
-ArmorTypes are 1) Plate. 2) Mail. 3) Leather. and 4) Cloth
-
-Weapons
-There are only equip one weapon at the time, weapons arent save. 
-Weapontypes are: 1) axe, 2) sword, 3) hammer, 4) dagger, 5) bow, 6) staff and 7) wand.
-Weapons have level requirements and classtype requirements which player class has to fulfill order to use
 
 Other features
 Console Game contains a controller that user can use to navigate 6 different actions such as level up, choose to equip items they want and see their attributes and inventory.
