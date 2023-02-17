@@ -74,5 +74,5 @@ Level up increases total stats by: Strength +3, Dexterity +2, Magic +1
 Warrior can only equip following items Hammer, Sword, Axe, Mail and Plate
 Warrior damage is based by total strength
 
-Other features
+# Other features
 Console Game contains a controller that user can use to navigate 6 different actions such as level up, choose to equip items they want and see their attributes and inventory.
